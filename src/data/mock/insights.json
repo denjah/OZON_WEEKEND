@@ -1,0 +1,200 @@
+{
+  "period": "2026-06",
+  "insights": [
+    {
+      "id": "insight-001",
+      "type": "threat",
+      "severity": "critical",
+      "title": "Billiard-Group — абсолютный лидер рынка",
+      "description": "Billiard-Group набрал 26/40 в аудите — лидер рынка. 15 000 SKU, 300 брендов, 8–10 салонов в 7 городах + СНГ, гарантия до 25 лет, рассрочка. Weekend (12/40) отстаёт в 2 раза. Устаревший дизайн — единственное слабое место.",
+      "affectedCompetitors": ["billiard-group"],
+      "impact": "high",
+      "confidence": 95,
+      "recommendations": [
+        "Масштабировать ассортимент: 2000 SKU → 5000+",
+        "Открыть рассрочку через банк-партнёр",
+        "Атаковать слабый дизайн: показать современный UX как конкурентное преимущество"
+      ],
+      "createdAt": "2026-06-19T10:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-002",
+      "type": "opportunity",
+      "severity": "info",
+      "title": "Рассрочка — конкурентный разрыв",
+      "description": "Только 4 из 22 компаний предлагают рассрочку: Ф-ка «Старт» (Сплит), Бильярд №1 (0-0-6), Billiard-Prof (Халва/Tinkoff), Billiard-Group. Weekend её НЕ предлагает. При среднем чеке 40–500K₽ это критически важная фича.",
+      "affectedCompetitors": ["fabrika-start", "billiard-1", "billiard-prof", "billiard-group"],
+      "impact": "high",
+      "confidence": 100,
+      "recommendations": [
+        "Подключить Тинькофф Рассрочку или Сбер Сплит",
+        "Добавить баннер «Рассрочка 0-0-6» на главную и карточки товаров",
+        "Это даст преимущество над 18 из 22 конкурентов"
+      ],
+      "createdAt": "2026-06-19T09:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-003",
+      "type": "threat",
+      "severity": "warning",
+      "title": "SEO-катастрофа Weekend: 4 страницы 404",
+      "description": "У Weekend 4 ключевых страницы возвращают 404: /kontakty/, /dostavka/, /oplata/, /garantiya/. Canonical отсутствует, robots.txt блокирует пагинацию каталога. JSON-LD Schema отсутствует. Но 10+ конкурентов имеют аналогичные или худшие SEO-проблемы.",
+      "affectedCompetitors": [],
+      "impact": "high",
+      "confidence": 100,
+      "recommendations": [
+        "Срочно восстановить /kontakty/, /dostavka/, /oplata/, /garantiya/",
+        "Добавить canonical на все страницы каталога",
+        "Внедрить JSON-LD Schema (Product, Organization, BreadcrumbList)",
+        "Убрать блокировку ?-URL из robots.txt"
+      ],
+      "createdAt": "2026-06-18T14:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-004",
+      "type": "opportunity",
+      "severity": "info",
+      "title": "Онлайн-чат — стандарт рынка, но у Weekend его нет",
+      "description": "8 конкурентов уже используют онлайн-чат (JivoSite, Яндекс, Bitrix24). У Weekend чата нет. Это стандартный инструмент конверсии, особенно при высоком чеке. Установка JivoSite — 15 минут.",
+      "affectedCompetitors": ["fabrika-start", "billiard-1", "billiard-group", "8futov", "billiard-prof"],
+      "impact": "medium",
+      "confidence": 95,
+      "recommendations": [
+        "Установить JivoSite или Яндекс.Чат — бесплатно на старте",
+        "Настроить автоответ для нерабочего времени",
+        "Интегрировать чат с WhatsApp и Telegram"
+      ],
+      "createdAt": "2026-06-17T11:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-005",
+      "type": "trend",
+      "severity": "warning",
+      "title": "3D-конфигуратор стола — набирающий тренд",
+      "description": "Ф-ка «Старт» запустила лучший конфигуратор на рынке. Billiard-Prof, БС 1991 и TablePlay тоже имеют 3D-конфигураторы. Это мощный инструмент конверсии для премиум-столов. Weekend отстаёт.",
+      "affectedCompetitors": ["fabrika-start", "billiard-prof", "bs1991", "tableplay"],
+      "impact": "medium",
+      "confidence": 88,
+      "recommendations": [
+        "Запланировать разработку 3D-конфигуратора для линейки Weekend",
+        "На первом этапе: интерактивный выбор цвета/сукна/размера с фото",
+        "Изучить конфигуратор Ф-ки Старт как benchmark"
+      ],
+      "createdAt": "2026-06-16T09:00:00Z",
+      "acknowledged": true
+    },
+    {
+      "id": "insight-006",
+      "type": "comparison",
+      "severity": "info",
+      "title": "Weekend vs рынок: UX 4/10, дизайн 4/10 — ниже среднего",
+      "description": "Средний UX рынка: 4.9/10. Средний дизайн: 5.1/10. Weekend: UX 4/10, дизайн 4/10. Лидеры UX: Billiard-Group (8), Ф-ка Старт (8), Бильярд.ру (7), 1000Cues (7). Лидеры дизайна: Billiard-Group (7), Бильярд.ру (7), Ф-ка Игра (7).",
+      "affectedCompetitors": ["billiard-group", "fabrika-start", "billiard-ru", "1000cues"],
+      "impact": "medium",
+      "confidence": 92,
+      "recommendations": [
+        "Провести UX-аудит сайта Weekend с фокусом на каталог и карточку товара",
+        "Бенчмарк: изучить UX Billiard-Group и Ф-ки Старт",
+        "Добавить «Купить в 1 клик» и кросс-селл блоки"
+      ],
+      "createdAt": "2026-06-15T10:00:00Z",
+      "acknowledged": true
+    },
+    {
+      "id": "insight-007",
+      "type": "opportunity",
+      "severity": "info",
+      "title": "Luza.ru — медиа-гигант с уязвимостями",
+      "description": "Luza.ru доминирует в видеоконтенте (37.9K YouTube, 670+ видео). Но: фейковый Schema-рейтинг (OutOfStock + поддельная оценка), HTML 947 КБ, зависимость от фабрик. Weekend может перехватить выдачу, исправив свой Schema.",
+      "affectedCompetitors": ["luza"],
+      "impact": "medium",
+      "confidence": 82,
+      "recommendations": [
+        "Запустить видеоконтент-конвейер на YouTube (обзоры столов Weekend)",
+        "Внедрить правильный JSON-LD Schema до того, как Google накажет Luza за фейк",
+        "Использовать баги Schema Luza для перехвата выдачи"
+      ],
+      "createdAt": "2026-06-14T16:00:00Z",
+      "acknowledged": false
+    },
+    {
+      "id": "insight-008",
+      "type": "recommendation",
+      "severity": "warning",
+      "title": "Дефицит видеоконтента — главная слабость Weekend",
+      "description": "Weekend: 93 ролика, 655 подписчиков YouTube. Ф-ка Старт: 516 роликов, 3590 подписчиков. Luza: 670+ роликов, 37900 подписчиков. Видеообзоры есть в карточках только у 4 конкурентов (Старт, Billiard-Group, 8futov, Billiard-Prof).",
+      "affectedCompetitors": ["luza", "fabrika-start"],
+      "impact": "high",
+      "confidence": 90,
+      "recommendations": [
+        "Увеличить производство видео до 5+ роликов в месяц",
+        "Добавить видеообзоры в карточки товаров на сайте",
+        "Фокус: обзоры столов Weekend, инструкции по установке, перетяжка сукна"
+      ],
+      "createdAt": "2026-06-13T10:00:00Z",
+      "acknowledged": true
+    }
+  ],
+  "reports": [
+    {
+      "id": "report-001",
+      "title": "Аудит 22 конкурентов — 69 параметров",
+      "subtitle": "Июнь 2026",
+      "type": "monthly",
+      "generatedAt": "2026-06-19T00:00:00Z",
+      "generatedBy": "manual",
+      "formats": ["csv", "pdf"],
+      "sections": ["Базовые параметры", "Цифровое присутствие", "SEO-проблемы", "UX и конверсия", "Силы и уязвимости"]
+    },
+    {
+      "id": "report-002",
+      "title": "SWOT: Billiard-Group (лидер рынка)",
+      "subtitle": "Автоматический",
+      "type": "swot",
+      "generatedAt": "2026-06-18T00:00:00Z",
+      "generatedBy": "auto",
+      "formats": ["pdf", "pptx"],
+      "sections": ["Сильные стороны", "Слабые стороны", "Возможности", "Угрозы"]
+    },
+    {
+      "id": "report-003",
+      "title": "SEO-проблемы рынка бильярдного оборудования",
+      "subtitle": "Автоматический",
+      "type": "pricing",
+      "generatedAt": "2026-06-15T00:00:00Z",
+      "generatedBy": "auto",
+      "formats": ["pdf"],
+      "sections": ["Canonical", "Schema.org", "404 ошибки", "HTML вес", "Критические баги"]
+    }
+  ],
+  "chatHistory": [
+    {
+      "id": "msg-001",
+      "role": "user",
+      "content": "Кто главный конкурент Weekend по ассортименту и охвату?",
+      "timestamp": "2026-06-19T14:32:00Z"
+    },
+    {
+      "id": "msg-002",
+      "role": "assistant",
+      "content": "На основе анализа 69 параметров выделяю **Billiard-Group** как главного конкурента:\n\n**1. Масштаб (лидер рынка)**\n15 000 SKU vs 2 000 у Weekend. 8–10 салонов в 7 городах vs 2 у Weekend.\n\n**2. Аудит-балл: 26/40 (лучший)**\nWeekend набрал 12/40 — отставание в 2 раза.\n\n**3. Уязвимости Billiard-Group:**\n- Устаревший дизайн (7/10, но можно лучше)\n- Перегруженный каталог\n- Слабое видео\n\n**Рекомендации:**\n- Атаковать через современный UX и дизайн\n- Подключить рассрочку (у Billiard-Group есть)\n- Развивать видеоконтент",
+      "timestamp": "2026-06-19T14:33:00Z"
+    },
+    {
+      "id": "msg-003",
+      "role": "user",
+      "content": "Какие фичи сайта есть у конкурентов, но нет у Weekend?",
+      "timestamp": "2026-06-19T14:35:00Z"
+    },
+    {
+      "id": "msg-004",
+      "role": "assistant",
+      "content": "**Фичи, которых нет у Weekend, но есть у конкурентов:**\n\n| Фича | Есть у | Weekend |\n|---|---|---|\n| Рассрочка/кредит | Старт, Б.№1, Б-Проф, Б-Group | ❌ |\n| Онлайн-чат | 8 конкурентов (Jivo, Яндекс) | ❌ |\n| Видеообзоры в карточках | Старт, Б-Group, 8futов, Б-Проф | ❌ |\n| 3D-конфигуратор | Старт, Б-Проф, БС91, TablePlay | ❌ |\n| «Купить в 1 клик» | 7 конкурентов | ❌ |\n| Кросс-селл в карточке | Старт (лучший), 6 других | ❌ |\n| Лид-магнит / квиз | Б-Проф, БС91, TablePlay, Start-Line | ❌ |\n| Программа лояльности | Дом Спорта (бонусы) | ❌ |\n\n**Приоритет внедрения:** Рассрочка → Чат → «Купить в 1 клик» → Кросс-селл",
+      "timestamp": "2026-06-19T14:36:00Z"
+    }
+  ]
+}

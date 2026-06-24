@@ -1,0 +1,160 @@
+{
+  "competitorId": "billiard-1",
+  "isOurBusiness": false,
+  "ratings": {
+    "overall": 4.5,
+    "trend": "+0.1",
+    "trendDirection": "up",
+    "totalReviews": 350,
+    "newReviewsThisMonth": 12,
+    "platforms": {
+      "googleMaps": {
+        "rating": 4.4,
+        "reviews": 400,
+        "trend": "stable"
+      },
+      "twogis": {
+        "rating": 4.6,
+        "reviews": 600,
+        "trend": "up"
+      },
+      "yandexMaps": {
+        "rating": 4.9,
+        "reviews": 200,
+        "trend": "up"
+      }
+    },
+    "distribution": {
+      "1": 2,
+      "2": 3,
+      "3": 5,
+      "4": 10,
+      "5": 80
+    },
+    "sentimentScore": 85,
+    "sentimentTrend": "+5%"
+  },
+  "pricing": {
+    "currency": "RUB",
+    "pricePerHour": {
+      "current": 1500,
+      "previous": 1500,
+      "delta": 0,
+      "deltaDirection": "stable",
+      "lastChanged": "2026-01-10T00:00:00Z"
+    },
+    "priceSegments": {
+      "morning": {
+        "label": "Утро",
+        "price": 1000,
+        "previous": 1000
+      },
+      "evening": {
+        "label": "Вечер",
+        "price": 2000,
+        "previous": 2000
+      }
+    },
+    "priceHistory": [
+      {
+        "month": "Янв",
+        "evening": 2000
+      },
+      {
+        "month": "Фев",
+        "evening": 2000
+      }
+    ],
+    "priceIndex": 100,
+    "priceIndexLabel": "Average",
+    "promotions": []
+  },
+  "activity": {
+    "level": "medium",
+    "levelLabel": "Средняя",
+    "score": 75,
+    "socialMedia": {
+      "instagram": {
+        "followers": 5000,
+        "followersGrowth": "+2%",
+        "postsThisMonth": 10,
+        "avgEngagement": 3.5,
+        "lastPost": "2026-06-18T10:00:00Z"
+      },
+      "vk": {
+        "followers": 3000,
+        "followersGrowth": "+1%",
+        "postsThisMonth": 8,
+        "avgEngagement": 2.1,
+        "lastPost": "2026-06-15T12:00:00Z"
+      }
+    },
+    "advertising": {
+      "activeCampaigns": 2,
+      "estimatedBudget": 50000,
+      "platforms": [
+        "Yandex"
+      ],
+      "lastDetected": "2026-06-19T00:00:00Z"
+    },
+    "websiteUpdates": {
+      "lastUpdate": "2026-06-01T00:00:00Z",
+      "updatesThisMonth": 1,
+      "changesDetected": [
+        "Price update"
+      ]
+    },
+    "activityHeatmap": {}
+  },
+  "marketPosition": {
+    "qualityScore": 75,
+    "priceLevel": 80,
+    "marketShareEstimate": 5,
+    "quadrant": "Niche"
+  },
+  "radarMetrics": {
+    "price": 8,
+    "quality": 8,
+    "service": 7,
+    "location": 6,
+    "assortment": 8,
+    "atmosphere": 7,
+    "marketing": 6,
+    "loyalty": 7
+  },
+  "swot": {
+    "strengths": [
+      "Широкий ассортимент",
+      "Хорошие отзывы"
+    ],
+    "weaknesses": [
+      "Устаревший сайт"
+    ],
+    "opportunities": [
+      "Новый сегмент B2B"
+    ],
+    "threats": [
+      "Агрессивная ценовая политика конкурентов"
+    ]
+  },
+  "businessInfo": {
+    "foundedYear": 2010,
+    "tablesCount": 0,
+    "tableTypes": {
+      "russian": 0,
+      "pool": 0,
+      "snooker": 0
+    },
+    "area_sqm": 1000,
+    "workingHours": "10:00 - 20:00",
+    "hasBar": false,
+    "hasKitchen": false,
+    "hasParking": true,
+    "hasWifi": true,
+    "additionalServices": [
+      "Delivery",
+      "Installation"
+    ],
+    "employeeCount": 50
+  }
+}

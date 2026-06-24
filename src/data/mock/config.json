@@ -1,0 +1,49 @@
+{
+  "description": "Конфигурация портала CompetitorIQ — группы, навигация, AI-промпты, фильтры",
+  "appName": "CompetitorIQ",
+  "appSubtitle": "Competitor Intelligence",
+  "businessName": "Weekend Бильярд",
+  "period": "Июнь 2026",
+  "navigation": [
+    { "id": "overview", "label": "Overview", "path": "/", "icon": "chart-bar" },
+    { "id": "graph", "label": "Граф связей", "path": "/graph", "icon": "network" },
+    { "id": "observatory", "label": "Обсерватория", "path": "/observatory", "icon": "telescope" },
+    { "id": "insights", "label": "Инсайты", "path": "/insights", "icon": "sparkles" }
+  ],
+  "competitorGroups": [
+    { "id": "direct", "label": "Прямые конкуренты", "color": "#A855F7", "count": 8 },
+    { "id": "indirect", "label": "Косвенные", "color": "#06B6D4", "count": 6 },
+    { "id": "niche", "label": "Нишевые", "color": "#F97316", "count": 7 }
+  ],
+  "recentReports": [
+    { "id": "report-001", "title": "Аудит 22 конкурентов — 69 параметров", "date": "2026-06-19" },
+    { "id": "report-002", "title": "SEO-проблемы рынка бильярдного оборудования", "date": "2026-06-15" }
+  ],
+  "analysisTypes": [
+    { "id": "seo", "label": "SEO", "color": "#FF3B30", "icon": "search" },
+    { "id": "ux", "label": "UX / Дизайн", "color": "#A855F7", "icon": "layout" },
+    { "id": "digital", "label": "Цифровое присутствие", "color": "#06B6D4", "icon": "globe" },
+    { "id": "services", "label": "Сервис и услуги", "color": "#00E676", "icon": "wrench" },
+    { "id": "assortment", "label": "Ассортимент", "color": "#FB923C", "icon": "grid" }
+  ],
+  "aiPromptSuggestions": [
+    "Сравни SEO Weekend vs Billiard-Group",
+    "SWOT-анализ Ф-ки Старт",
+    "Кто главный конкурент по ассортименту?",
+    "У кого лучший UX на рынке?",
+    "Какие фичи сайта нам не хватает?",
+    "Создай отчёт по SEO-проблемам"
+  ],
+  "filterOptions": {
+    "eventTypes": ["Все", "SEO", "UX", "Digital", "Контент", "Сервис", "Структурные"],
+    "threatLevels": ["Все", "Критично", "Внимание", "Норма"],
+    "timePeriods": ["7д", "30д", "90д", "1г"],
+    "competitorTypes": ["Все", "Прямые", "Косвенные", "Нишевые"]
+  },
+  "dataSourcesStatus": {
+    "websites": { "label": "Сайты конкурентов", "status": "active", "lastSync": "2026-06-19T20:00:00Z" },
+    "youtube": { "label": "YouTube", "status": "active", "lastSync": "2026-06-19T18:00:00Z" },
+    "seoAudit": { "label": "SEO-аудит", "status": "active", "lastSync": "2026-06-19T19:00:00Z" },
+    "socialMedia": { "label": "Соцсети (VK, TG)", "status": "active", "lastSync": "2026-06-19T21:00:00Z" }
+  }
+}

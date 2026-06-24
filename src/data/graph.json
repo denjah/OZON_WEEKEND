@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "description": "Граф связей между конкурентами Weekend в сфере бильярдного оборудования",
+    "graphEngine": "3d-force-graph"
+  },
+  "nodes": [
+    { "id": "weekend-billiard", "name": "Weekend Бильярд", "type": "self", "color": "#0157a4", "size": 70, "auditScore": 12, "group": 0 },
+    { "id": "billiard-group", "name": "Billiard-Group", "type": "direct", "color": "#A855F7", "size": 90, "auditScore": 26, "group": 1 },
+    { "id": "billiard-ru", "name": "Бильярд.ру", "type": "direct", "color": "#A855F7", "size": 80, "auditScore": 24, "group": 1 },
+    { "id": "1000cues", "name": "1000Cues", "type": "niche", "color": "#F97316", "size": 75, "auditScore": 23, "group": 3 },
+    { "id": "luza", "name": "Luza.ru", "type": "indirect", "color": "#06B6D4", "size": 70, "auditScore": 20, "group": 2 },
+    { "id": "billiard-1", "name": "Бильярд №1", "type": "direct", "color": "#A855F7", "size": 70, "auditScore": 20, "group": 1 },
+    { "id": "billiard-prof", "name": "Billiard-Prof", "type": "direct", "color": "#A855F7", "size": 70, "auditScore": 20, "group": 1 },
+    { "id": "8futov", "name": "8futов", "type": "direct", "color": "#A855F7", "size": 65, "auditScore": 19, "group": 1 },
+    { "id": "fabrika-igra", "name": "Ф-ка «Игра»", "type": "indirect", "color": "#06B6D4", "size": 65, "auditScore": 19, "group": 2 },
+    { "id": "dom-sporta", "name": "Дом Спорта", "type": "indirect", "color": "#06B6D4", "size": 60, "auditScore": 18, "group": 2 },
+    { "id": "esbshop", "name": "ESBShop", "type": "niche", "color": "#F97316", "size": 60, "auditScore": 18, "group": 3 },
+    { "id": "fabrika-start", "name": "Ф-ка «Старт»", "type": "direct", "color": "#A855F7", "size": 55, "auditScore": 10.5, "group": 1 },
+    { "id": "bs1991", "name": "БС 1991", "type": "direct", "color": "#A855F7", "size": 55, "auditScore": 15, "group": 1 },
+    { "id": "ruptur", "name": "РуптуР", "type": "direct", "color": "#A855F7", "size": 50, "auditScore": 13, "group": 1 },
+    { "id": "tableplay", "name": "TablePlay", "type": "niche", "color": "#F97316", "size": 48, "auditScore": 12, "group": 3 },
+    { "id": "avelonsport", "name": "AvelonSport", "type": "indirect", "color": "#06B6D4", "size": 45, "auditScore": 11, "group": 2 },
+    { "id": "start-line", "name": "Start-Line", "type": "indirect", "color": "#06B6D4", "size": 45, "auditScore": 11, "group": 2 },
+    { "id": "billiard-city-real", "name": "Бильярд Сити", "type": "niche", "color": "#F97316", "size": 50, "auditScore": 15, "group": 3 },
+    { "id": "biliard-expert", "name": "Biliard-Expert", "type": "niche", "color": "#F97316", "size": 42, "auditScore": 10, "group": 3 },
+    { "id": "billiardika", "name": "Бильярдика", "type": "niche", "color": "#F97316", "size": 38, "auditScore": 9, "group": 3 },
+    { "id": "billiroom", "name": "BilliRoom", "type": "niche", "color": "#F97316", "size": 38, "auditScore": 9, "group": 3 },
+    { "id": "top-turnik", "name": "Top-Turnik/DFC", "type": "indirect", "color": "#06B6D4", "size": 35, "auditScore": 0, "group": 2 },
+
+    { "id": "brand-start", "name": "Бренд: Старт", "type": "platform", "color": "#8E8E93", "size": 30, "group": 4 },
+    { "id": "brand-ruptur", "name": "Бренд: Руптур", "type": "platform", "color": "#8E8E93", "size": 30, "group": 4 },
+    { "id": "brand-dynamic", "name": "Бренд: Dynamic", "type": "platform", "color": "#8E8E93", "size": 25, "group": 4 },
+    { "id": "brand-rasson", "name": "Бренд: Rasson", "type": "platform", "color": "#8E8E93", "size": 25, "group": 4 },
+    { "id": "brand-dfc", "name": "Бренд: DFC", "type": "platform", "color": "#8E8E93", "size": 25, "group": 4 },
+
+    { "id": "platform-youtube", "name": "YouTube", "type": "platform", "color": "#FF0000", "size": 28, "group": 5 },
+    { "id": "platform-vk", "name": "VKontakte", "type": "platform", "color": "#0077FF", "size": 28, "group": 5 },
+    { "id": "platform-tg", "name": "Telegram", "type": "platform", "color": "#229ED9", "size": 25, "group": 5 },
+
+    { "id": "audience-b2c", "name": "B2C Покупатели", "type": "audience", "color": "#06B6D4", "size": 30, "group": 6 },
+    { "id": "audience-b2b", "name": "B2B Клубы/Отели", "type": "audience", "color": "#06B6D4", "size": 25, "group": 6 },
+    { "id": "audience-sport", "name": "Спортсмены ФБСР", "type": "audience", "color": "#06B6D4", "size": 25, "group": 6 },
+    { "id": "audience-design", "name": "Дизайнеры/Архитекторы", "type": "audience", "color": "#06B6D4", "size": 22, "group": 6 }
+  ],
+  "links": [
+    { "source": "weekend-billiard", "target": "billiard-group", "type": "price_competition", "strength": 0.9, "label": "Главный конкурент (26/40)" },
+    { "source": "weekend-billiard", "target": "billiard-prof", "type": "shared_audience", "strength": 0.8, "label": "Продаёт столы Weekend" },
+    { "source": "weekend-billiard", "target": "billiardika", "type": "shared_audience", "strength": 0.6, "label": "Продаёт столы Weekend" },
+    { "source": "weekend-billiard", "target": "8futov", "type": "price_competition", "strength": 0.7, "label": "Конкуренция по ассортименту" },
+    { "source": "weekend-billiard", "target": "billiard-1", "type": "price_competition", "strength": 0.7, "label": "Конкуренция по масштабу" },
+
+    { "source": "fabrika-start", "target": "luza", "type": "partnership", "strength": 0.9, "label": "Luza перепродаёт Старт" },
+    { "source": "fabrika-start", "target": "billiard-city-real", "type": "partnership", "strength": 0.8, "label": "Экскл. дилер в Тюмени" },
+    { "source": "fabrika-start", "target": "brand-start", "type": "shared_platform", "strength": 0.9 },
+    { "source": "billiard-group", "target": "brand-start", "type": "shared_platform", "strength": 0.7 },
+    { "source": "billiard-prof", "target": "brand-start", "type": "shared_platform", "strength": 0.6 },
+    { "source": "avelonsport", "target": "brand-start", "type": "shared_platform", "strength": 0.5 },
+    { "source": "8futov", "target": "brand-start", "type": "shared_platform", "strength": 0.5 },
+
+    { "source": "ruptur", "target": "brand-ruptur", "type": "shared_platform", "strength": 0.9 },
+    { "source": "billiard-group", "target": "brand-ruptur", "type": "shared_platform", "strength": 0.7 },
+    { "source": "billiard-prof", "target": "brand-ruptur", "type": "shared_platform", "strength": 0.6 },
+    { "source": "8futov", "target": "brand-ruptur", "type": "shared_platform", "strength": 0.5 },
+    { "source": "avelonsport", "target": "brand-ruptur", "type": "shared_platform", "strength": 0.4 },
+
+    { "source": "weekend-billiard", "target": "brand-rasson", "type": "shared_platform", "strength": 0.9 },
+    { "source": "weekend-billiard", "target": "brand-dynamic", "type": "shared_platform", "strength": 0.8 },
+    { "source": "billiard-group", "target": "brand-dynamic", "type": "shared_platform", "strength": 0.7 },
+    { "source": "billiard-prof", "target": "brand-rasson", "type": "shared_platform", "strength": 0.5 },
+
+    { "source": "top-turnik", "target": "brand-dfc", "type": "shared_platform", "strength": 0.9 },
+    { "source": "avelonsport", "target": "brand-dfc", "type": "shared_platform", "strength": 0.5 },
+    { "source": "8futov", "target": "brand-dfc", "type": "shared_platform", "strength": 0.4 },
+
+    { "source": "luza", "target": "platform-youtube", "type": "shared_platform", "strength": 0.9 },
+    { "source": "fabrika-start", "target": "platform-youtube", "type": "shared_platform", "strength": 0.7 },
+    { "source": "weekend-billiard", "target": "platform-youtube", "type": "shared_platform", "strength": 0.4 },
+    { "source": "8futov", "target": "platform-youtube", "type": "shared_platform", "strength": 0.3 },
+
+    { "source": "weekend-billiard", "target": "platform-vk", "type": "shared_platform", "strength": 0.5 },
+    { "source": "billiard-group", "target": "platform-vk", "type": "shared_platform", "strength": 0.5 },
+    { "source": "fabrika-start", "target": "platform-vk", "type": "shared_platform", "strength": 0.5 },
+    { "source": "8futov", "target": "platform-vk", "type": "shared_platform", "strength": 0.4 },
+
+    { "source": "weekend-billiard", "target": "platform-tg", "type": "shared_platform", "strength": 0.4 },
+    { "source": "billiard-group", "target": "platform-tg", "type": "shared_platform", "strength": 0.4 },
+    { "source": "fabrika-start", "target": "platform-tg", "type": "shared_platform", "strength": 0.4 },
+
+    { "source": "weekend-billiard", "target": "audience-b2c", "type": "audience_segment", "strength": 0.8 },
+    { "source": "billiard-group", "target": "audience-b2c", "type": "audience_segment", "strength": 0.9 },
+    { "source": "billiard-1", "target": "audience-b2c", "type": "audience_segment", "strength": 0.8 },
+    { "source": "8futov", "target": "audience-b2c", "type": "audience_segment", "strength": 0.7 },
+    { "source": "dom-sporta", "target": "audience-b2c", "type": "audience_segment", "strength": 0.6 },
+
+    { "source": "weekend-billiard", "target": "audience-b2b", "type": "audience_segment", "strength": 0.7 },
+    { "source": "billiard-group", "target": "audience-b2b", "type": "audience_segment", "strength": 0.8 },
+    { "source": "fabrika-start", "target": "audience-b2b", "type": "audience_segment", "strength": 0.7 },
+
+    { "source": "fabrika-start", "target": "audience-sport", "type": "audience_segment", "strength": 0.9 },
+    { "source": "bs1991", "target": "audience-sport", "type": "audience_segment", "strength": 0.7 },
+    { "source": "esbshop", "target": "audience-sport", "type": "audience_segment", "strength": 0.6 },
+
+    { "source": "billiard-ru", "target": "audience-design", "type": "audience_segment", "strength": 0.8 },
+    { "source": "fabrika-igra", "target": "audience-design", "type": "audience_segment", "strength": 0.9 },
+    { "source": "ruptur", "target": "audience-design", "type": "audience_segment", "strength": 0.6 },
+
+    { "source": "bs1991", "target": "esbshop", "type": "shared_audience", "strength": 0.7, "label": "Оба продают «Легенда»" },
+    { "source": "tableplay", "target": "top-turnik", "type": "shared_audience", "strength": 0.5, "label": "DFC → TablePlay" }
+  ]
+}

@@ -1,0 +1,265 @@
+/* ============================================================
+   Theme Background Effects — CSS-only
+   Aurora Luxe: mesh gradient + particles
+   Obsidian Noir: noise grain overlay
+   ============================================================ */
+
+/* Common effects wrapper */
+.effectsLayer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* ============================================================
+   STYLE 02 — Aurora Luxe: Mesh Gradient Background
+   ============================================================ */
+.meshGradient {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+:global([data-style="02"]) .meshGradient {
+  opacity: 1;
+}
+
+.meshOrb1,
+.meshOrb2,
+.meshOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  will-change: transform;
+}
+
+.meshOrb1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+  top: -10%;
+  right: -5%;
+  animation: orbFloat1 20s ease-in-out infinite;
+}
+
+.meshOrb2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+  bottom: -15%;
+  left: -5%;
+  animation: orbFloat2 25s ease-in-out infinite;
+}
+
+.meshOrb3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
+  top: 40%;
+  left: 40%;
+  animation: orbFloat3 18s ease-in-out infinite;
+}
+
+/* Light mode — muted orbs */
+:global([data-style="02"][data-theme="light"]) .meshOrb1 {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+}
+:global([data-style="02"][data-theme="light"]) .meshOrb2 {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+}
+:global([data-style="02"][data-theme="light"]) .meshOrb3 {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.04) 0%, transparent 70%);
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-40px, 30px) scale(1.1); }
+  66% { transform: translate(20px, -20px) scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(1.1); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, -30px) scale(1.15); }
+}
+
+/* ============================================================
+   STYLE 02 — Aurora Luxe: Floating Particles (CSS-only)
+   ============================================================ */
+.particles {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+:global([data-style="02"]) .particles {
+  opacity: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.5);
+  will-change: transform;
+}
+
+.particle:nth-child(1) {
+  top: 15%; left: 20%;
+  animation: particleFloat 12s ease-in-out infinite;
+  animation-delay: 0s;
+  background: rgba(124, 58, 237, 0.6);
+  width: 3px; height: 3px;
+}
+.particle:nth-child(2) {
+  top: 45%; left: 75%;
+  animation: particleFloat 15s ease-in-out infinite;
+  animation-delay: -3s;
+  background: rgba(6, 182, 212, 0.5);
+}
+.particle:nth-child(3) {
+  top: 70%; left: 30%;
+  animation: particleFloat 18s ease-in-out infinite;
+  animation-delay: -6s;
+  background: rgba(168, 85, 247, 0.4);
+  width: 3px; height: 3px;
+}
+.particle:nth-child(4) {
+  top: 25%; left: 60%;
+  animation: particleFloat 14s ease-in-out infinite;
+  animation-delay: -2s;
+  background: rgba(6, 182, 212, 0.4);
+}
+.particle:nth-child(5) {
+  top: 80%; left: 85%;
+  animation: particleFloat 16s ease-in-out infinite;
+  animation-delay: -8s;
+  background: rgba(124, 58, 237, 0.3);
+  width: 4px; height: 4px;
+}
+.particle:nth-child(6) {
+  top: 10%; left: 45%;
+  animation: particleFloat 20s ease-in-out infinite;
+  animation-delay: -4s;
+  background: rgba(168, 85, 247, 0.35);
+}
+.particle:nth-child(7) {
+  top: 55%; left: 10%;
+  animation: particleFloat 13s ease-in-out infinite;
+  animation-delay: -7s;
+  background: rgba(6, 182, 212, 0.45);
+  width: 3px; height: 3px;
+}
+.particle:nth-child(8) {
+  top: 35%; left: 90%;
+  animation: particleFloat 17s ease-in-out infinite;
+  animation-delay: -1s;
+  background: rgba(124, 58, 237, 0.35);
+}
+
+/* Light mode particles — dimmer */
+:global([data-style="02"][data-theme="light"]) .particle {
+  opacity: 0.4;
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(30px, -40px) scale(1.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-20px, -80px) scale(0.8);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(40px, -30px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* ============================================================
+   STYLE 03 — Obsidian Noir: Noise/Grain Overlay
+   ============================================================ */
+.noiseOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: overlay;
+}
+
+:global([data-style="03"]) .noiseOverlay {
+  opacity: 0.03;
+}
+
+:global([data-style="03"][data-theme="light"]) .noiseOverlay {
+  opacity: 0.025;
+  mix-blend-mode: multiply;
+}
+
+/* ============================================================
+   STYLE 03 — Obsidian Noir: Accent line glow
+   ============================================================ */
+.accentLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+:global([data-style="03"]) .accentLine {
+  opacity: 1;
+  background: linear-gradient(90deg, transparent 0%, #FF3366 30%, #FFD700 70%, transparent 100%);
+}
+
+:global([data-style="03"][data-theme="light"]) .accentLine {
+  background: linear-gradient(90deg, transparent 0%, #CC2952 30%, #B8860B 70%, transparent 100%);
+  opacity: 0.6;
+}
+
+/* ============================================================
+   Glassmorphism override for Aurora Luxe cards
+   ============================================================ */
+:global([data-style="02"]) :global([class*="chartCard"]),
+:global([data-style="02"]) :global([class*="kpiCard"]),
+:global([data-style="02"]) :global([class*="tableCard"]),
+:global([data-style="02"]) :global([class*="sectionCard"]),
+:global([data-style="02"]) :global([class*="alertsCard"]),
+:global([data-style="02"]) :global([class*="aiPrompt"]) {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+:global([data-style="02"][data-theme="light"]) :global([class*="chartCard"]),
+:global([data-style="02"][data-theme="light"]) :global([class*="kpiCard"]),
+:global([data-style="02"][data-theme="light"]) :global([class*="tableCard"]),
+:global([data-style="02"][data-theme="light"]) :global([class*="sectionCard"]),
+:global([data-style="02"][data-theme="light"]) :global([class*="alertsCard"]),
+:global([data-style="02"][data-theme="light"]) :global([class*="aiPrompt"]) {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(124, 58, 237, 0.08);
+  box-shadow: 0 1px 3px rgba(124, 58, 237, 0.04);
+}

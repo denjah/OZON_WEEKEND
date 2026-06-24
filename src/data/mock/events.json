@@ -1,0 +1,265 @@
+{
+  "period": "2026-06",
+  "events": [
+    {
+      "id": "evt-001",
+      "competitorId": "billiard-group",
+      "type": "structural",
+      "severity": "critical",
+      "title": "Billiard-Group — лидер аудита 26/40",
+      "description": "Billiard-Group набрал максимальный балл аудита: 26 из 40. 15 000 SKU, 300 брендов, 8–10 выставочных залов в 7 городах + СНГ, гарантия до 25 лет, рассрочка, кешбэк, бот-эксперт «за 59 секунд».",
+      "details": {
+        "auditScore": 26,
+        "skuCount": "15 000",
+        "showrooms": "8–10"
+      },
+      "source": "CSV-аудит",
+      "sourceUrl": null,
+      "timestamp": "2026-06-19T10:00:00Z",
+      "isRead": false,
+      "isPinned": true
+    },
+    {
+      "id": "evt-002",
+      "competitorId": "fabrika-start",
+      "type": "content",
+      "severity": "warning",
+      "title": "Ф-ка Старт — лучший конфигуратор стола на рынке",
+      "description": "Фабрика «Старт» запустила интерактивный конфигуратор бильярдного стола — лучший на рынке. Пользователь может выбрать тип игры, размер, материал, сукно и увидеть итоговую цену. Также доступна рассрочка «Сплит» без переплаты.",
+      "details": {
+        "feature": "3D-конфигуратор",
+        "ratingUX": 8
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://fabrika-start.ru",
+      "timestamp": "2026-06-18T14:00:00Z",
+      "isRead": false,
+      "isPinned": true
+    },
+    {
+      "id": "evt-003",
+      "competitorId": "1000cues",
+      "type": "content",
+      "severity": "warning",
+      "title": "1000Cues запустил 3D-тур салона (единственный на рынке)",
+      "description": "1000Cues — единственный конкурент с 3D-туром выставочного зала. Также предлагает пожизненную гарантию на кии Арисова, скидку 10% на 2-й кий и гравировку.",
+      "details": {
+        "feature": "3D-тур салона",
+        "unique": true
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://1000cues.ru",
+      "timestamp": "2026-06-17T11:00:00Z",
+      "isRead": false,
+      "isPinned": false
+    },
+    {
+      "id": "evt-004",
+      "competitorId": "luza",
+      "type": "content",
+      "severity": "warning",
+      "title": "Luza.ru — 670+ видео, 37.9K подписчиков (медиа-доминирование)",
+      "description": "Luza.ru доминирует в видеоконтенте: 37 900 подписчиков YouTube, 670+ роликов. Для сравнения: Weekend — 655 подписчиков, 93 ролика. Luza перепродаёт продукцию Ф-ки Старт.",
+      "details": {
+        "youtubeSubscribers": 37900,
+        "youtubeVideos": "670+",
+        "weekendSubscribers": 655
+      },
+      "source": "YouTube",
+      "sourceUrl": null,
+      "timestamp": "2026-06-16T09:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-005",
+      "competitorId": "billiard-ru",
+      "type": "structural",
+      "severity": "info",
+      "title": "Бильярд.ру — 24/40, второе место в аудите",
+      "description": "Первый в России производитель (с 1990). 35+ лет, ручная работа, итальянский сланец, кабинеты под ключ. Но: H1 на главной = название акции, robots.txt блокирует каталог, Schema отсутствует полностью.",
+      "details": {
+        "auditScore": 24,
+        "foundedYear": 1990,
+        "seoBug": "H1 = акция, robots.txt блокирует каталог"
+      },
+      "source": "SEO-аудит",
+      "sourceUrl": null,
+      "timestamp": "2026-06-15T10:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-006",
+      "competitorId": "billiard-1",
+      "type": "content",
+      "severity": "warning",
+      "title": "Бильярд №1 — рассрочка 0-0-6 через 4 банка",
+      "description": "Бильярд №1 предлагает рассрочку 0-0-6 через 4 банка, кнопку «Хочу скидку» и «Нашли дешевле». 8000+ SKU, 2 собственные фабрики. Критический SEO-баг: H1 отсутствует, плейсхолдеры CITY_PP в title.",
+      "details": {
+        "feature": "Рассрочка 0-0-6",
+        "banks": 4,
+        "skuCount": "8000+"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://billiard1.ru",
+      "timestamp": "2026-06-14T12:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-007",
+      "competitorId": "billiard-prof",
+      "type": "content",
+      "severity": "info",
+      "title": "Billiard-Prof — рассрочка Халва/Tinkoff + видеообзоры",
+      "description": "Billiard-Prof (20/40) предлагает рассрочку через 4 банка (Халва, Tinkoff, Alfa, Sberbank), видеообзоры в карточках товаров и 3D-конфигуратор. С 1991 года. Продаёт столы Weekend.",
+      "details": {
+        "feature": "Рассрочка + видео + 3D",
+        "sellsWeekend": true
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://billiard-prof.ru",
+      "timestamp": "2026-06-13T09:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-008",
+      "competitorId": "esbshop",
+      "type": "content",
+      "severity": "info",
+      "title": "ESBShop — Бауров + Сталев как амбассадоры",
+      "description": "ESBShop привлёк двух звёзд русского бильярда: Евгений Бауров и Евгений Сталев. Подбор кия с точностью 99%, 3 года гарантии на кии. Лучший cross-sell на рынке. Но Tilda — технологический тупик.",
+      "details": {
+        "ambassadors": ["Бауров", "Сталев"],
+        "cms": "Tilda"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://esbshop.ru",
+      "timestamp": "2026-06-12T15:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-009",
+      "competitorId": "fabrika-igra",
+      "type": "structural",
+      "severity": "info",
+      "title": "Ф-ка «Игра» — премиум 301K–3.5M ₽, BCA/EBC",
+      "description": "Фабрика «Игра» (г. Истра) — производитель премиум-бильярда. Цены 301К–3.55М ₽. Сертификация BCA/EBC. Упоминания в РБК, МатчТВ. Но: Tilda без e-commerce, нет онлайн-продаж.",
+      "details": {
+        "priceRange": "301 860 — 3 555 750",
+        "certifications": ["BCA", "EBC"]
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://superigra.ru",
+      "timestamp": "2026-06-11T11:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-010",
+      "competitorId": "8futov",
+      "type": "content",
+      "severity": "info",
+      "title": "8futov — YouTube-скидка -20% и «Нашли дешевле»",
+      "description": "8futов предлагает уникальные конверсионные триггеры: скидка -20% за YouTube-подписку, «Нашли дешевле — снизим цену», подарки к столам. 3000–5000 SKU. HTML 625KB — критически тяжёлый.",
+      "details": {
+        "youtubeDiscount": "-20%",
+        "htmlSize": "625KB"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://8futov.ru",
+      "timestamp": "2026-06-10T09:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-011",
+      "competitorId": "dom-sporta",
+      "type": "structural",
+      "severity": "info",
+      "title": "Дом Спорта — 50K SKU, B2B/B2G, 2000+ самовывоз",
+      "description": "Дом Спорта — мультиотраслевой гигант: 50 000 SKU, 2000+ точек самовывоза, B2B+B2G продажи. Бильярд — маргинальная категория (150+ поставщиков). 509KB HTML, нет canonical.",
+      "details": {
+        "skuTotal": "50 000+",
+        "pickupPoints": "2000+"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://domsporta.com",
+      "timestamp": "2026-06-09T14:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-012",
+      "competitorId": "bs1991",
+      "type": "content",
+      "severity": "info",
+      "title": "БС 1991 — ТВ-охват 2М+ через ФБС СПб",
+      "description": "БС 1991 — производитель столов «Легенда», генеральный партнёр ФБС СПб. ТВ-охват 2М+. 30 дней обмен, экспресс-доставка. Но: кастомная CMS DIRPRO, катастрофическое SEO, только СПб.",
+      "details": {
+        "tvReach": "2М+",
+        "cms": "DIRPRO"
+      },
+      "source": "Сайт конкурента",
+      "sourceUrl": "https://bs1991.ru",
+      "timestamp": "2026-06-08T10:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-013",
+      "competitorId": "billiardika",
+      "type": "structural",
+      "severity": "info",
+      "title": "Бильярдика — сайт мёртв, каталог 404",
+      "description": "Каталог Бильярдика полностью сломан (все страницы 404). Невозможно купить онлайн. Предлагает аренду столов (от 6К), ремонт киев, выкуп б/у. Не является реальной угрозой.",
+      "details": {
+        "siteStatus": "мёртв",
+        "services": ["аренда", "ремонт", "выкуп б/у"]
+      },
+      "source": "SEO-аудит",
+      "sourceUrl": null,
+      "timestamp": "2026-06-07T11:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-014",
+      "competitorId": "ruptur",
+      "type": "structural",
+      "severity": "info",
+      "title": "РуптуР — каталог 404, сайт = лендинг",
+      "description": "Весь каталог РуптуР (ruptur-billiard.ru) = 404. Сайт фактически лендинг главной страницы. Комнаты от 1.36М, спонсор ЧМ. Но онлайн-продажи невозможны.",
+      "details": {
+        "siteStatus": "лендинг",
+        "priceFrom": "1 360 000"
+      },
+      "source": "SEO-аудит",
+      "sourceUrl": null,
+      "timestamp": "2026-06-06T09:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    },
+    {
+      "id": "evt-015",
+      "competitorId": "top-turnik",
+      "type": "structural",
+      "severity": "info",
+      "title": "Top-Turnik/DFC — не прямой конкурент",
+      "description": "Top-Turnik (DFC) — масс-маркет ритейлер на Tilda. Столы от 13К ₽. «Купить» ведёт на tableplay.ru. Tilda — нет e-commerce. Не наш сегмент (коробочные решения vs Weekend).",
+      "details": {
+        "cms": "Tilda",
+        "priceFrom": 13183,
+        "redirectsTo": "tableplay.ru"
+      },
+      "source": "SEO-аудит",
+      "sourceUrl": null,
+      "timestamp": "2026-06-05T10:00:00Z",
+      "isRead": true,
+      "isPinned": false
+    }
+  ]
+}

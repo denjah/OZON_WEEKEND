@@ -1,0 +1,257 @@
+{
+  "product_list_error": "Status: 404, Body: 404 page not found\n",
+  "analytics_data": [
+    {
+      "dimensions": [
+        {
+          "id": "3028068869",
+          "name": "Теннисный стол всепогодный \"Winner W-800\" в комплекте ракетки и мячи / стол для настольного тенниса"
+        }
+      ],
+      "metrics": [
+        4769293,
+        44
+      ]
+    },
+    {
+      "dimensions": [
+        {
+          "id": "1952270183",
+          "name": "Теннисный стол всепогодный \"Winner S-600\" / стол для настольного тенниса"
+        }
+      ],
+      "metrics": [
+        1037173,
+        11
+      ]
+    },
+    {
+      "dimensions": [
+        {
+          "id": "2196944893",
+          "name": "Теннисный стол всепогодный Weengo \"W-400 Outdoor\" / стол для настольного тенниса"
+        }
+      ],
+      "metrics": [
+        787518,
+        9
+      ]
+    },
+    {
+      "dimensions": [
+        {
+          "id": "3028134796",
+          "name": "Профессиональный теннисный стол складной для дома \"Winner W-385 Indoor\" / стол для настольного тенниса"
+        }
+      ],
+      "metrics": [
+        511841,
+        6
+      ]
+    },
+    {
+      "dimensions": [
+        {
+          "id": "1952268038",
+          "name": "Настольный футбол 4 в 1 \"Compact\", складной / активные игры для детей"
+        }
+      ],
+      "metrics": [
+        361955,
+        7
+      ]
+    },
+    {
+      "dimensions": [
+        {
+          "id": "2214644767",
+          "name": "Настольный футбол большой \"WeenGo Standart\" / настольная игра"
+        }
+      ],
+      "metrics": [
+        322380,
+        15
+      ]
+    },
+    {
+      "dimensions": [
+        {
+          "id": "1952269984",
+          "name": "Теннисный стол складной для дома \"Rasson Premium S-2260 Indoor\" / стол для настольного тенниса"
+        }
+      ],
+      "metrics": [
+        293222,
+        2
+      ]
+    },
+    {
+      "dimensions": [
+        {
+          "id": "1952268917",
+          "name": "Аэрохоккей большой \"ВремяХоккея NEON-X\" от сети"
+        }
+      ],
+      "metrics": [
+        286393,
+        3
+      ]
+    },
+    {
+      "dimensions": [
+        {
+          "id": "1952272188",
+          "name": "Аэрохоккей большой \"WeenGo Vancouver\", от сети"
+        }
+      ],
+      "metrics": [
+        284895,
+        3
+      ]
+    },
+    {
+      "dimensions": [
+        {
+          "id": "1952270452",
+          "name": "Теннисный стол складной для дома \"Rasson Premium S-1950 Indoor\" / стол для настольного тенниса"
+        }
+      ],
+      "metrics": [
+        237800,
+        2
+      ]
+    }
+  ],
+  "finance_data_samples": [
+    {
+      "operation_id": 52702488645,
+      "operation_type": "InsuranceServiceSellerItem",
+      "operation_date": "2026-06-01 00:00:00",
+      "operation_type_name": "Страхование товара от массовых повреждений",
+      "delivery_charge": 0,
+      "return_delivery_charge": 0,
+      "accruals_for_sale": 0,
+      "sale_commission": 0,
+      "amount": -52.18,
+      "type": "other",
+      "posting": {
+        "delivery_schema": "",
+        "order_date": "",
+        "posting_number": "",
+        "warehouse_id": 0
+      },
+      "items": [],
+      "services": []
+    },
+    {
+      "operation_id": 52707980027,
+      "operation_type": "MarketplaceRedistributionOfAcquiringOperation",
+      "operation_date": "2026-06-01 00:00:00",
+      "operation_type_name": "Оплата эквайринга",
+      "delivery_charge": 0,
+      "return_delivery_charge": 0,
+      "accruals_for_sale": 0,
+      "sale_commission": 0,
+      "amount": -743.87,
+      "type": "other",
+      "posting": {
+        "delivery_schema": "",
+        "order_date": "2026-06-01 07:37:13",
+        "posting_number": "32890822-0198",
+        "warehouse_id": 0
+      },
+      "items": [
+        {
+          "name": "Теннисный стол всепогодный Weengo \"W-400 Outdoor\" / стол для настольного тенниса",
+          "sku": 2196944893
+        }
+      ],
+      "services": [
+        {
+          "name": "MarketplaceRedistributionOfAcquiringOperation",
+          "price": -743.87
+        }
+      ]
+    },
+    {
+      "operation_id": 52709343094,
+      "operation_type": "MarketplaceRedistributionOfAcquiringOperation",
+      "operation_date": "2026-06-01 00:00:00",
+      "operation_type_name": "Оплата эквайринга",
+      "delivery_charge": 0,
+      "return_delivery_charge": 0,
+      "accruals_for_sale": 0,
+      "sale_commission": 0,
+      "amount": -180.75,
+      "type": "other",
+      "posting": {
+        "delivery_schema": "",
+        "order_date": "2026-06-01 08:14:24",
+        "posting_number": "0126070465-0296",
+        "warehouse_id": 0
+      },
+      "items": [
+        {
+          "name": "Настольный футбол большой \"WeenGo Standart\" / настольная игра",
+          "sku": 2214644767
+        }
+      ],
+      "services": [
+        {
+          "name": "MarketplaceRedistributionOfAcquiringOperation",
+          "price": -180.75
+        }
+      ]
+    },
+    {
+      "operation_id": 52731203825,
+      "operation_type": "CustomerReviews",
+      "operation_date": "2026-06-01 00:00:00",
+      "operation_type_name": "Подписка Управление отзывами",
+      "delivery_charge": 0,
+      "return_delivery_charge": 0,
+      "accruals_for_sale": 0,
+      "sale_commission": 0,
+      "amount": -1380.6,
+      "type": "other",
+      "posting": {
+        "delivery_schema": "RFBS",
+        "order_date": "2026-05-10 18:46:59",
+        "posting_number": "0243572514-0013-1",
+        "warehouse_id": 1020002959368000
+      },
+      "items": [
+        {
+          "name": "Теннисный стол всепогодный \"Winner W-800\" в комплекте ракетки и мячи / стол для настольного тенниса",
+          "sku": 3028068869
+        }
+      ],
+      "services": [
+        {
+          "name": "MarketplaceServiceItemProductReviewsManagementSubscription",
+          "price": -1380.6
+        }
+      ]
+    },
+    {
+      "operation_id": 52731257779,
+      "operation_type": "MarketplaceSellerReexposureDeliveryReturnOperation",
+      "operation_date": "2026-06-01 00:00:00",
+      "operation_type_name": "Перечисление за доставку от покупателя",
+      "delivery_charge": 0,
+      "return_delivery_charge": 0,
+      "accruals_for_sale": 0,
+      "sale_commission": 0,
+      "amount": 8000,
+      "type": "transfer_delivery",
+      "posting": {
+        "delivery_schema": "RFBS",
+        "order_date": "2026-05-10 18:46:59",
+        "posting_number": "0243572514-0013-1",
+        "warehouse_id": 1020002959368000
+      },
+      "items": [],
+      "services": []
+    }
+  ]
+}

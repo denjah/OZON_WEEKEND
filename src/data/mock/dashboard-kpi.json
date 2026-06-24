@@ -1,0 +1,84 @@
+{
+  "period": "2026-06",
+  "generatedAt": "2026-06-19T22:00:00Z",
+  "kpi": {
+    "totalCompetitors": {
+      "value": 21,
+      "delta": "+21",
+      "deltaDirection": "up",
+      "deltaLabel": "из CSV",
+      "description": "Конкуренты в мониторинге"
+    },
+    "avgAuditScore": {
+      "value": 15.5,
+      "delta": "из 40",
+      "deltaDirection": "stable",
+      "deltaLabel": "средний балл",
+      "description": "Средний аудит-балл рынка",
+      "formatted": "15.5/40"
+    },
+    "activeThreats": {
+      "value": 9,
+      "delta": "warning+",
+      "deltaDirection": "up",
+      "deltaLabel": "warning и выше",
+      "description": "Активные угрозы",
+      "items": [
+        { "id": "billiard-group", "level": "critical", "reason": "Лидер аудита 26/40, 15K SKU, 8-10 салонов" },
+        { "id": "billiard-ru", "level": "warning", "reason": "24/40, производитель с 1990, ручная работа" },
+        { "id": "1000cues", "level": "warning", "reason": "23/40, 3D-тур, пожизненная гарантия" },
+        { "id": "luza", "level": "warning", "reason": "20/40, 37.9K YouTube, медиа-доминирование" },
+        { "id": "billiard-1", "level": "warning", "reason": "20/40, 8000+ SKU, рассрочка 0-0-6" },
+        { "id": "billiard-prof", "level": "warning", "reason": "20/40, рассрочка, видеообзоры, 3D" },
+        { "id": "8futov", "level": "warning", "reason": "19/40, «Нашли дешевле», YouTube-скидки" },
+        { "id": "fabrika-igra", "level": "warning", "reason": "19/40, премиум, BCA/EBC, СМИ" },
+        { "id": "dom-sporta", "level": "warning", "reason": "18/40, 50K SKU, B2B/B2G" }
+      ]
+    },
+    "avgUxScore": {
+      "value": 4.9,
+      "delta": "из 10",
+      "deltaDirection": "stable",
+      "deltaLabel": "Weekend: 4",
+      "description": "Средний UX рынка",
+      "scale": "1–10"
+    }
+  },
+  "marketOverview": {
+    "totalMarketPlayers": 22,
+    "avgAuditScore": 15.5,
+    "auditRange": { "min": 0, "max": 26 },
+    "avgUxScore": 4.9,
+    "ourPosition": {
+      "auditScore": 12,
+      "auditPercentile": 40,
+      "uxScore": 4,
+      "uxPercentile": 35,
+      "marketShareRank": 6
+    }
+  },
+  "competitorsSummary": [
+    { "id": "billiard-group", "name": "Billiard-Group", "type": "direct", "auditScore": 26, "uxScore": 8, "designScore": 7, "activityLevel": "high", "threatLevel": "critical" },
+    { "id": "billiard-ru", "name": "Бильярд.ру", "type": "direct", "auditScore": 24, "uxScore": 7, "designScore": 7, "activityLevel": "medium", "threatLevel": "warning" },
+    { "id": "1000cues", "name": "1000Cues", "type": "niche", "auditScore": 23, "uxScore": 7, "designScore": 6, "activityLevel": "medium", "threatLevel": "warning" },
+    { "id": "luza", "name": "Luza.ru", "type": "indirect", "auditScore": 20, "uxScore": 6, "designScore": 6.5, "activityLevel": "high", "threatLevel": "warning" },
+    { "id": "billiard-1", "name": "Бильярд №1", "type": "direct", "auditScore": 20, "uxScore": 7, "designScore": 6, "activityLevel": "medium", "threatLevel": "warning" },
+    { "id": "billiard-prof", "name": "Billiard-Prof", "type": "direct", "auditScore": 20, "uxScore": 6, "designScore": 5, "activityLevel": "medium", "threatLevel": "warning" },
+    { "id": "8futov", "name": "8futov", "type": "direct", "auditScore": 19, "uxScore": 6, "designScore": 5, "activityLevel": "medium", "threatLevel": "warning" },
+    { "id": "fabrika-igra", "name": "Ф-ка «Игра»", "type": "indirect", "auditScore": 19, "uxScore": 5, "designScore": 7, "activityLevel": "medium", "threatLevel": "warning" },
+    { "id": "dom-sporta", "name": "Дом Спорта", "type": "indirect", "auditScore": 18, "uxScore": 5, "designScore": 4, "activityLevel": "low", "threatLevel": "warning" },
+    { "id": "esbshop", "name": "ESBShop", "type": "niche", "auditScore": 18, "uxScore": 4, "designScore": 6, "activityLevel": "medium", "threatLevel": "warning" },
+    { "id": "bs1991", "name": "БС 1991", "type": "direct", "auditScore": 15, "uxScore": 5, "designScore": 4, "activityLevel": "low", "threatLevel": "normal" },
+    { "id": "billiard-city-real", "name": "Бильярд Сити", "type": "niche", "auditScore": 15, "uxScore": 4, "designScore": 3, "activityLevel": "low", "threatLevel": "normal" },
+    { "id": "ruptur", "name": "РуптуР", "type": "direct", "auditScore": 13, "uxScore": 2, "designScore": 5, "activityLevel": "low", "threatLevel": "normal" },
+    { "id": "weekend-billiard", "name": "Weekend Бильярд", "type": "self", "auditScore": 12, "uxScore": 4, "designScore": 4, "activityLevel": "medium", "threatLevel": "normal" },
+    { "id": "tableplay", "name": "TablePlay", "type": "niche", "auditScore": 12, "uxScore": 5, "designScore": 6, "activityLevel": "low", "threatLevel": "normal" },
+    { "id": "avelonsport", "name": "AvelonSport", "type": "indirect", "auditScore": 11, "uxScore": 4, "designScore": 5, "activityLevel": "low", "threatLevel": "normal" },
+    { "id": "start-line", "name": "Start-Line", "type": "indirect", "auditScore": 11, "uxScore": 3, "designScore": 4, "activityLevel": "low", "threatLevel": "normal" },
+    { "id": "fabrika-start", "name": "Ф-ка «Старт»", "type": "direct", "auditScore": 10.5, "uxScore": 8, "designScore": 6, "activityLevel": "high", "threatLevel": "normal" },
+    { "id": "biliard-expert", "name": "Biliard-Expert", "type": "niche", "auditScore": 10, "uxScore": 5, "designScore": 5, "activityLevel": "low", "threatLevel": "normal" },
+    { "id": "billiardika", "name": "Бильярдика", "type": "niche", "auditScore": 9, "uxScore": 2, "designScore": 2, "activityLevel": "low", "threatLevel": "normal" },
+    { "id": "billiroom", "name": "BilliRoom", "type": "niche", "auditScore": 9, "uxScore": 2, "designScore": 3, "activityLevel": "low", "threatLevel": "normal" },
+    { "id": "top-turnik", "name": "Top-Turnik/DFC", "type": "indirect", "auditScore": 0, "uxScore": 5, "designScore": 5.5, "activityLevel": "low", "threatLevel": "normal" }
+  ]
+}
