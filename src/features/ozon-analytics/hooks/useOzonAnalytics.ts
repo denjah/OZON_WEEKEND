@@ -17,9 +17,23 @@ import { realOzonData } from '../model/real-data-dashboard';
 
 
 export function useOzonAnalytics(): OzonAnalyticsData {
-  const [isLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error] = useState<string | null>(null);
   const [reviewsData, setReviewsData] = useState<any[]>([]);
+  const [weekendProducts, setWeekendProducts] = useState<AggregatedProduct[]>([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch('/api/ozon/products')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.products) {
+          setWeekendProducts(data.products);
+        }
+      })
+      .catch(err => console.error('Failed to load weekend products:', err))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   useEffect(() => {
     fetch('/api/ozon/reviews')
@@ -48,36 +62,7 @@ export function useOzonAnalytics(): OzonAnalyticsData {
   // ── Строим плоский список AggregatedProduct из реальных данных ──
   const allProducts: AggregatedProduct[] = useMemo(() => {
     const baseProducts = realOzonData.products ?? [];
-    
-    // Временная заглушка для Weekend (пока нет данных из Ozon API)
-    const weekendMockProduct: AggregatedProduct = {
-      id: "weekend-mock-1",
-      parentProductId: "weekend-mock-1",
-      variantId: "weekend-mock-1-var",
-      title: "Weekend Company Бильярдный стол",
-      brandName: "Weekend",
-      brandId: "b-weekend",
-      sizeFt: 7,
-      workScheme: "FBO",
-      sku: "999999999",
-      url: "https://www.ozon.ru/",
-      mainImage: "https://placehold.co/300x400/00B4D8/FFFFFF?text=Weekend",
-      imageUrls: [],
-      price: 110000,
-      ordered: 3, // Скромные реальные показатели (отстающий)
-      revenue: 330000, 
-      asp: 110000,
-      velocity: 0.1,
-      buyoutPercent: 95,
-      contentScore: 100,
-      hasVideo: true,
-      rating: 5.0,
-      reviews: 5,
-      reviewsDelta: 1,
-      questions: 0
-    };
-
-    const combined = [weekendMockProduct, ...baseProducts];
+    const combined = [...weekendProducts, ...baseProducts];
     
     // Подменяем заглушки на реально скачанные картинки
     return combined.map(p => {
@@ -92,7 +77,7 @@ export function useOzonAnalytics(): OzonAnalyticsData {
       }
       return p;
     });
-  }, [reviewsData]);
+  }, [reviewsData, weekendProducts]);
 
   // ── Фильтрация ─────────────────────────────────────────────────────────────
   const filteredProducts = useMemo<AggregatedProduct[]>(() => {
