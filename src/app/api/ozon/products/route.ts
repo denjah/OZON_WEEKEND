@@ -67,42 +67,28 @@ export async function GET() {
     for (let i = 0; i < skuList.length; i += chunkSize) {
       const chunk = skuList.slice(i, i + chunkSize);
       
-      const infoData: any = await new Promise((resolve, reject) => {
-        const https = require('https');
-        const data = JSON.stringify({ sku: chunk, product_id: [], offer_id: [] });
-        const options = {
-          hostname: 'api-seller.ozon.ru',
-          port: 443,
-          path: '/v3/product/info/list',
+      try {
+        const infoRes = await fetch('https://api-seller.ozon.ru/v3/product/info/list', {
           method: 'POST',
-          headers: {
-            'Client-Id': clientId,
-            'Api-Key': apiKey,
-            'Content-Type': 'application/json',
-            'Content-Length': Buffer.byteLength(data)
-          }
-        };
-        const req = https.request(options, res => {
-          let body = '';
-          res.on('data', d => body += d);
-          res.on('end', () => {
-            if (res.statusCode === 200) {
-              try { resolve(JSON.parse(body)); } catch (e) { resolve({ error: 'parse error', body }); }
-            } else {
-              resolve({ error: 'http error', status: res.statusCode, body });
-            }
-          });
+          headers: getHeaders(),
+          cache: 'no-store',
+          body: JSON.stringify({ sku: chunk, product_id: [], offer_id: [] })
         });
-        req.on('error', reject);
-        req.write(data);
-        req.end();
-      });
 
-      const items = infoData?.result?.items || infoData?.items;
-      if (items && Array.isArray(items)) {
-        allItems.push(...items);
-      } else {
-        errors.push(`Batch missing items: ${JSON.stringify(infoData).substring(0, 200)}`);
+        if (!infoRes.ok) {
+          errors.push(`Batch HTTP error status: ${infoRes.status}`);
+          continue;
+        }
+
+        const infoData = await infoRes.json();
+        const items = infoData?.result?.items || infoData?.items;
+        if (items && Array.isArray(items)) {
+          allItems.push(...items);
+        } else {
+          errors.push(`Batch missing items: ${JSON.stringify(infoData).substring(0, 200)}`);
+        }
+      } catch (err: any) {
+        errors.push(`Request failed: ${err.message}`);
       }
     }
 
