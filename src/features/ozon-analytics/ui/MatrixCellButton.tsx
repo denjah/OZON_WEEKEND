@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from '@/styles/sales-matrix.module.css';
 import { MatrixCellData } from '../model/useExportedMatrix';
+import { useGlobalFilters } from '../model/useGlobalFilters';
 
 interface Props {
   cell: MatrixCellData;
@@ -11,13 +12,45 @@ interface Props {
 }
 
 export function MatrixCellButton({ cell, onClick, isClickable = true }: Props) {
+  const { metricMode } = useGlobalFilters();
   if (cell.products.length === 0) return <div className={styles.emptyCell}>-</div>;
 
   const share = cell.shareInColumn || 0;
   
   let shareColorClass = styles.shareNeutral;
-  if (share > 30) shareColorClass = styles.shareHigh;
-  else if (share < 5) shareColorClass = styles.shareLow;
+  let barColor = '#9CA3AF';
+  if (share > 25) {
+    shareColorClass = styles.shareHigh;
+    barColor = '#10B981';
+  } else if (share < 5) {
+    shareColorClass = styles.shareLow;
+    barColor = '#EF4444';
+  }
+
+  if (metricMode === 'funnel') {
+    return (
+      <div className={styles.cellButtonContent}>
+        <div className={styles.cellFunnelGrid}>
+          <div className={styles.funnelStat}>
+            <span className={styles.funnelIcon}>👁</span>
+            <span className={styles.funnelVal}>{(cell.funnel.impressions / 1000).toFixed(1)}K</span>
+          </div>
+          <div className={styles.funnelStat}>
+            <span className={styles.funnelLabel}>CTR</span>
+            <span className={styles.funnelVal}>{cell.funnel.ctr.toFixed(1)}%</span>
+          </div>
+          <div className={styles.funnelStat}>
+            <span className={styles.funnelIcon}>🛒</span>
+            <span className={styles.funnelVal}>{cell.funnel.addToCartPercent.toFixed(1)}%</span>
+          </div>
+          <div className={styles.funnelStat}>
+            <span className={styles.funnelLabel}>ДРР</span>
+            <span className={styles.funnelVal}>{cell.funnel.drr.toFixed(1)}%</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.cellButtonContent}>
@@ -27,20 +60,16 @@ export function MatrixCellButton({ cell, onClick, isClickable = true }: Props) {
       </div>
       
       <div className={styles.cellFooter}>
-        <span className={`${styles.cellShare} ${shareColorClass}`}>
-          {share.toFixed(1)}%
-        </span>
-        
-        {/* Mock Sparkline */}
-        <div className={styles.sparkline}>
-          <svg viewBox="0 0 50 15" preserveAspectRatio="none">
-            <polyline
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              points="0,10 10,12 20,8 30,10 40,5 50,2"
+        <div className={styles.shareBarContainer}>
+          <div className={styles.shareBar}>
+            <div 
+              className={styles.shareBarFill} 
+              style={{ width: `${Math.min(share, 100)}%`, backgroundColor: barColor }} 
             />
-          </svg>
+          </div>
+          <span className={`${styles.cellShare} ${shareColorClass}`}>
+            {share.toFixed(1)}%
+          </span>
         </div>
       </div>
     </div>

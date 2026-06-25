@@ -5,7 +5,7 @@ import styles from '@/styles/sales-matrix.module.css';
 import { FEET_COLUMNS, MatrixRowData, MatrixCellData } from '../model/useExportedMatrix';
 import { useMatrixDrilldown } from '../model/useMatrixDrilldown';
 import { useGlobalFilters } from '../model/useGlobalFilters';
-import { useProductSlidePanel } from '../model/useProductSlidePanel';
+import { MatrixProductsExpand } from './MatrixProductsExpand';
 import { MatrixCellButton } from './MatrixCellButton';
 
 interface Props {
@@ -16,21 +16,17 @@ interface Props {
 }
 
 export function MatrixRow({ row, isLevel2 = false, maxRevenue, maxSales }: Props) {
-  const { expandedRows, toggleRow } = useMatrixDrilldown();
+  const { expandedRows, toggleRow, expandedCells, toggleCell } = useMatrixDrilldown();
   const { metricMode } = useGlobalFilters();
-  const { openPanel } = useProductSlidePanel();
 
   const isExpanded = expandedRows.has(row.id);
 
   const renderCellValue = (cell: MatrixCellData) => {
     switch (metricMode) {
-      case 'revenue': return <MatrixCellButton cell={cell} />;
+      case 'revenue':
+      case 'funnel':
+        return <MatrixCellButton cell={cell} />;
       case 'buyoutPercent': return `${Math.round(cell.buyoutPercent)}%`;
-      case 'funnel': return (
-        <div className={styles.funnelBadge}>
-          {cell.products.length} SKU
-        </div>
-      );
       default: return '-';
     }
   };
@@ -67,14 +63,15 @@ export function MatrixRow({ row, isLevel2 = false, maxRevenue, maxSales }: Props
         {FEET_COLUMNS.map(ft => {
           const cell = row.cells[ft];
           const hasProducts = cell && cell.products.length > 0;
+          const cellId = `${row.id}-${ft}`;
 
           return (
             <td key={ft} className={styles.cell}>
               {hasProducts ? (
                 <button 
-                  className={styles.heatmapCell} 
+                  className={`${styles.heatmapCell} ${expandedCells.has(cellId) ? styles.cellActive : ''}`} 
                   style={{ background: getHeatmapColor(cell) }}
-                  onClick={() => openPanel(cell.products, { title: `${row.name} - ${ft}` })}
+                  onClick={() => toggleCell(row.id, ft)}
                 >
                   {renderCellValue(cell)}
                 </button>
@@ -85,6 +82,23 @@ export function MatrixRow({ row, isLevel2 = false, maxRevenue, maxSales }: Props
           );
         })}
       </tr>
+
+      {/* Render Expanded Cells Inline */}
+      {FEET_COLUMNS.map(ft => {
+        const cellId = `${row.id}-${ft}`;
+        if (expandedCells.has(cellId) && row.cells[ft] && row.cells[ft].products.length > 0) {
+          return (
+            <MatrixProductsExpand 
+              key={`expand-${cellId}`}
+              cell={row.cells[ft]}
+              title={`${row.name} × ${ft}`}
+              onClose={() => toggleCell(row.id, ft)}
+              colSpan={FEET_COLUMNS.length + 1}
+            />
+          );
+        }
+        return null;
+      })}
 
       {/* Render L2 Children */}
       {isExpanded && !isLevel2 && row.children.map(child => (

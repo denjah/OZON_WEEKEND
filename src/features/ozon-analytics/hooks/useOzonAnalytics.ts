@@ -188,7 +188,13 @@ export function useOzonAnalytics(): OzonAnalyticsData {
       { id: 'b-weekend', name: 'Weekend', marketplace: 'ozon', competitorType: 'direct', color: '#00B4D8' },
       ...(realOzonData.brands ?? [])
     ],
-    snapshot: null,
+    snapshot: {
+      id: 'snap-1',
+      periodStart: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
+      periodEnd: new Date().toISOString(),
+      capturedAt: new Date().toISOString(),
+      source: 'api'
+    },
     products: filteredProducts,
     matrixRows,
     insights,

@@ -39,7 +39,7 @@ export function ProductCardDrawer({ product, onClose }: Props) {
           bottom: 0,
           width: '500px',
           maxWidth: '100%',
-          backgroundColor: 'var(--surface)',
+          backgroundColor: 'var(--bg-surface)',
           zIndex: 1001,
           boxShadow: '-4px 0 24px rgba(0,0,0,0.1)',
           display: 'flex',
@@ -62,9 +62,9 @@ export function ProductCardDrawer({ product, onClose }: Props) {
           <div style={{ display: 'flex', gap: '16px', marginBottom: '24px' }}>
             {product.mainImage ? (
               /* eslint-disable-next-line @next/next/no-img-element */
-              <img src={product.mainImage} alt={product.title} style={{ width: '120px', height: '120px', borderRadius: '8px', objectFit: 'cover' }} />
+              <img src={product.mainImage} alt={product.title} style={{ width: '120px', height: '160px', borderRadius: '8px', objectFit: 'contain', backgroundColor: 'var(--bg-surface-alt)' }} />
             ) : (
-              <div style={{ width: '120px', height: '120px', borderRadius: '8px', backgroundColor: 'var(--bg-primary)' }} />
+              <div style={{ width: '120px', height: '160px', borderRadius: '8px', backgroundColor: 'var(--bg-primary)' }} />
             )}
             <div style={{ flex: 1 }}>
               <h3 style={{ margin: '0 0 8px 0', fontSize: '16px', lineHeight: 1.4 }}>{product.title}</h3>

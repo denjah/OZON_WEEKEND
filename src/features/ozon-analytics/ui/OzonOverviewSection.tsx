@@ -13,7 +13,7 @@ interface Props {
 }
 
 export function OzonOverviewSection({ brands, products }: Props) {
-  const [chartType, setChartType] = useState<'3d-cloud' | 'treemap' | '3d-bars' | 'bars'>('3d-cloud');
+  const [chartType, setChartType] = useState<'3d-cloud' | 'treemap' | '3d-bars' | 'bars'>('treemap');
 
   // Вычисляем топ брендов по выручке
   const brandStats = brands.map(brand => {

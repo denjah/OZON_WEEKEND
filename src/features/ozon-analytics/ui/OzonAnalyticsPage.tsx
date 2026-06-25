@@ -190,7 +190,7 @@ export default function OzonAnalyticsPage() {
           {!data.isLoading && !data.error && (
             <>
               {/* KPI Row */}
-              <OzonKpiGrid kpi={data.kpi} />
+              <OzonKpiGrid kpi={data.kpi} snapshotDate={data.snapshot?.capturedAt} />
 
               {activeTab === 'dashboard' && (
                 <>
