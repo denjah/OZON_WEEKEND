@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { inferTags } from '@/features/ozon-analytics/lib/tag-rules';
 
 export const dynamic = 'force-dynamic';
 
@@ -121,6 +122,7 @@ export async function GET() {
         url: `https://www.ozon.ru/product/${item.sku}`,
         mainImage: mainImage,
         imageUrls: imageUrls,
+        tags: inferTags({ title: item.name, sizeFt: sizeFt || 7 }),
         price: parseFloat(item.price) || 0,
         ordered: metrics.ordered,
         revenue: metrics.revenue,

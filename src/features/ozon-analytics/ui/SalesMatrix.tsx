@@ -22,6 +22,7 @@ export function SalesMatrix() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.scrollWrapper}>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -46,6 +47,7 @@ export function SalesMatrix() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

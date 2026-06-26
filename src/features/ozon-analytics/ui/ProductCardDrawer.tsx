@@ -72,6 +72,42 @@ export function ProductCardDrawer({ product, onClose }: Props) {
               <div style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '4px' }}>SKU: <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{product.sku}</span></div>
               <div style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '4px' }}>Размер: <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{product.sizeFt} ft</span></div>
               <a href={product.url} target="_blank" rel="noreferrer" style={{ fontSize: '13px', color: '#005BFF', textDecoration: 'none' }}>Открыть на Ozon ↗</a>
+
+              {/* Тэги категории */}
+              {product.tags && product.tags.length > 0 && (
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '8px' }}>
+                  {product.tags.map((tag) => {
+                    const isStructural = tag === 'Настольный' || tag === 'Напольный' || tag === 'Складной';
+                    return (
+                      <span
+                        key={tag}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '3px',
+                          padding: '2px 8px',
+                          borderRadius: '12px',
+                          fontSize: '11px',
+                          fontWeight: 600,
+                          letterSpacing: '0.02em',
+                          background: isStructural
+                            ? 'rgba(99, 179, 237, 0.12)'
+                            : 'rgba(246, 173, 85, 0.12)',
+                          color: isStructural ? '#63B3ED' : '#F6AD55',
+                          border: `1px solid ${isStructural ? 'rgba(99,179,237,0.3)' : 'rgba(246,173,85,0.3)'}`,
+                        }}
+                      >
+                        {tag === 'Настольный' && '🔲'}
+                        {tag === 'Напольный' && '🏗️'}
+                        {tag === 'Складной' && '📦'}
+                        {tag === 'Подсветка' && '✨'}
+                        {tag === 'Электронный счётчик' && '📊'}
+                        {' '}{tag}
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
 

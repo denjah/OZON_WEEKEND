@@ -4,7 +4,7 @@ import React from 'react';
 import styles from '@/styles/ozon.module.css';
 import { IconSearch, IconFilter, IconRefresh } from '@/components/icons';
 import { useOzonFilters } from '../hooks/useOzonFilters';
-import { Brand, WorkScheme } from '../model/types';
+import { Brand, WorkScheme, ALL_PRODUCT_TAGS, ProductTag } from '../model/types';
 
 interface OzonFiltersBarProps {
   brands: Brand[];
@@ -22,11 +22,13 @@ export function OzonFiltersBar({ brands, availableSizes }: OzonFiltersBarProps) 
     selectedBrandIds,
     selectedSizes,
     selectedSchemes,
+    selectedTags,
     hasVideoOnly,
     searchQuery,
     toggleBrand,
     toggleSize,
     toggleScheme,
+    toggleTag,
     setHasVideoOnly,
     setSearchQuery,
     resetFilters,
@@ -36,6 +38,7 @@ export function OzonFiltersBar({ brands, availableSizes }: OzonFiltersBarProps) 
     selectedBrandIds.length > 0 ||
     selectedSizes.length > 0 ||
     selectedSchemes.length > 0 ||
+    selectedTags.length > 0 ||
     hasVideoOnly ||
     searchQuery.trim().length > 0;
 
@@ -59,6 +62,36 @@ export function OzonFiltersBar({ brands, availableSizes }: OzonFiltersBarProps) 
             {size}ft
           </button>
         ))}
+      </div>
+
+      <div className={styles.filterDivider} />
+
+      {/* Tag chips — тэги категории */}
+      <div className={styles.filterGroup}>
+        {ALL_PRODUCT_TAGS.map((tag: ProductTag) => {
+          const isActive = selectedTags.includes(tag);
+          const isStructural = tag === 'Настольный' || tag === 'Напольный' || tag === 'Складной';
+          return (
+            <button
+              key={tag}
+              className={`${styles.filterChip} ${isActive ? styles.active : ''}`}
+              onClick={() => toggleTag(tag)}
+              id={`filter-tag-${tag.replace(/\s+/g, '-').toLowerCase()}`}
+              title={`Фильтр: ${tag}`}
+              style={isActive ? {} : {
+                borderColor: isStructural ? 'rgba(99, 179, 237, 0.4)' : 'rgba(246, 173, 85, 0.4)',
+                color: isStructural ? '#63B3ED' : '#F6AD55',
+              }}
+            >
+              {tag === 'Настольный' && '🔲 '}
+              {tag === 'Напольный' && '🏗️ '}
+              {tag === 'Складной' && '📦 '}
+              {tag === 'Подсветка' && '✨ '}
+              {tag === 'Электронный счётчик' && '📊 '}
+              {tag}
+            </button>
+          );
+        })}
       </div>
 
       <div className={styles.filterDivider} />

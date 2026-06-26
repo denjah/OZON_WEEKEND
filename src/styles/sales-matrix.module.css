@@ -1,10 +1,17 @@
 .container {
   width: 100%;
-  overflow-x: auto;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   margin-top: var(--spacing-md);
+  overflow: hidden;
+}
+
+.scrollWrapper {
+  width: 100%;
+  overflow-x: auto;
+  max-height: 75vh;
+  overflow-y: auto;
 }
 
 .table {
@@ -19,7 +26,7 @@
   top: 0;
   background: var(--bg-surface-alt);
   padding: 16px;
-  text-align: right;
+  text-align: center;
   font-size: 13px;
   color: var(--text-secondary);
   font-weight: 500;
@@ -27,6 +34,7 @@
   letter-spacing: 0.5px;
   border-bottom: 1px solid var(--border-subtle);
   z-index: 10;
+  box-shadow: 0 1px 0 var(--border-subtle);
 }
 
 .th:first-child {
@@ -323,8 +331,4 @@ button.heatmapCell.cellActive {
   background-color: rgba(56, 189, 248, 0.15) !important;
 }
 
-:global(thead) {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-}
+

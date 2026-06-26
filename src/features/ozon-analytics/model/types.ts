@@ -80,6 +80,22 @@ export type CardContent = {
 
 // --- UI Derived Types ---
 
+// Тэги для фильтрации и классификации товаров
+export type ProductTag =
+  | 'Настольный'
+  | 'Напольный'
+  | 'Складной'
+  | 'Подсветка'
+  | 'Электронный счётчик';
+
+export const ALL_PRODUCT_TAGS: ProductTag[] = [
+  'Настольный',
+  'Напольный',
+  'Складной',
+  'Подсветка',
+  'Электронный счётчик',
+];
+
 export type AggregatedProduct = {
   // Базовая инфа
   id: string;
@@ -98,6 +114,9 @@ export type AggregatedProduct = {
   hasVideo: boolean;
   contentScore: number;
   imageUrls?: string[];
+
+  // Тэги (классификация категории) — опционально в static data, inferTags заполняет в хуке
+  tags?: ProductTag[];
 
   // Продажи
   price: number;

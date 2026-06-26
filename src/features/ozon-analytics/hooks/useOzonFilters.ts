@@ -1,7 +1,7 @@
 'use client';
 
 import { create } from 'zustand';
-import { WorkScheme } from '../model/types';
+import { WorkScheme, ProductTag } from '../model/types';
 
 export type SortField =
   | 'revenue'
@@ -21,6 +21,7 @@ export interface OzonFilters {
   selectedBrandIds: string[];
   selectedSizes: number[];
   selectedSchemes: WorkScheme[];
+  selectedTags: ProductTag[];
   hasVideoOnly: boolean;
   minRating: number | null;   // null = без ограничений
   minContentScore: number | null;
@@ -40,6 +41,8 @@ export interface OzonFilters {
   toggleSize: (size: number) => void;
   setSelectedSchemes: (schemes: WorkScheme[]) => void;
   toggleScheme: (scheme: WorkScheme) => void;
+  setSelectedTags: (tags: ProductTag[]) => void;
+  toggleTag: (tag: ProductTag) => void;
   setHasVideoOnly: (value: boolean) => void;
   setMinRating: (value: number | null) => void;
   setMinContentScore: (value: number | null) => void;
@@ -53,6 +56,7 @@ const defaultState = {
   selectedBrandIds: [] as string[],
   selectedSizes: [] as number[],
   selectedSchemes: [] as WorkScheme[],
+  selectedTags: [] as ProductTag[],
   hasVideoOnly: false,
   minRating: null as number | null,
   minContentScore: null as number | null,
@@ -102,6 +106,17 @@ export const useOzonFilters = create<OzonFilters>((set, get) => ({
   setMinRating: (value) => set({ minRating: value }),
   setMinContentScore: (value) => set({ minContentScore: value }),
   setSearchQuery: (query) => set({ searchQuery: query }),
+
+  setSelectedTags: (tags) => set({ selectedTags: tags }),
+
+  toggleTag: (tag) => {
+    const current = get().selectedTags;
+    set({
+      selectedTags: current.includes(tag)
+        ? current.filter((t) => t !== tag)
+        : [...current, tag],
+    });
+  },
 
   setSort: (field, direction) => {
     const current = get();

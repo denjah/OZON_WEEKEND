@@ -14,6 +14,7 @@ import {
   OzonAnalyticsData
 } from '../model/types';
 import { realOzonData } from '../model/real-data-dashboard';
+import { inferTags } from '../lib/tag-rules';
 
 
 export function useOzonAnalytics(): OzonAnalyticsData {
@@ -50,6 +51,7 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     selectedBrandIds,
     selectedSizes,
     selectedSchemes,
+    selectedTags,
     hasVideoOnly,
     minRating,
     minContentScore,
@@ -64,20 +66,21 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     const baseProducts = realOzonData.products ?? [];
     const combined = [...weekendProducts, ...baseProducts];
     
-    // Подменяем заглушки на реально скачанные картинки
+    // Подменяем заглушки на реально скачанные картинки + авто-тэги
     return combined.map(p => {
-      // Ищем спарсенные данные по ID товара
       const scraped = reviewsData.find(rd => rd.productId === p.id);
-      if (scraped && scraped.mainImages && scraped.mainImages.length > 0) {
-        return {
-          ...p,
-          mainImage: scraped.mainImages[0], // Берем первую Hires-картинку
-          imageUrls: scraped.mainImages as string[]
-        } as AggregatedProduct;
+      const base: AggregatedProduct = scraped?.mainImages?.length
+        ? { ...p, mainImage: scraped.mainImages[0], imageUrls: scraped.mainImages as string[] }
+        : { ...p };
+      // Если тэги уже есть (напр. продукт Weekend пришёл с API) — оставляем.
+      // Иначе вычисляем автоматически.
+      if (!base.tags?.length) {
+        base.tags = inferTags(base);
       }
-      return p;
+      return base;
     });
   }, [reviewsData, weekendProducts]);
+
 
   // ── Фильтрация ─────────────────────────────────────────────────────────────
   const filteredProducts = useMemo<AggregatedProduct[]>(() => {
@@ -91,6 +94,11 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     }
     if (selectedSchemes.length > 0) {
       result = result.filter((p) => selectedSchemes.includes(p.workScheme));
+    }
+    if (selectedTags.length > 0) {
+      result = result.filter((p) =>
+        selectedTags.some((tag) => p.tags?.includes(tag))
+      );
     }
     if (hasVideoOnly) {
       result = result.filter((p) => p.hasVideo);
@@ -134,6 +142,7 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     selectedBrandIds,
     selectedSizes,
     selectedSchemes,
+    selectedTags,
     hasVideoOnly,
     minRating,
     minContentScore,
