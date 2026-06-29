@@ -33,6 +33,7 @@ import { ProductCardsTable } from './ProductCardsTable';
 import { ProductCardDrawer } from './ProductCardDrawer';
 import { UnitEconomicsSection } from './UnitEconomicsSection';
 import { ReviewsAnalysisSection } from './ReviewsAnalysisSection';
+import { SeoAuditSection } from './SeoAuditSection';
 import { AggregatedProduct } from '../model/types';
 import { ProductSlidePanel } from './ProductSlidePanel';
 
@@ -46,10 +47,11 @@ import { ProductSlidePanel } from './ProductSlidePanel';
    TAB DEFINITIONS
    ============================================================ */
 
-type OzonTab = 'dashboard' | 'cards' | 'economics' | 'reviews' | 'content' | 'brands' | 'insights' | 'import';
+type OzonTab = 'dashboard' | 'seo' | 'cards' | 'economics' | 'reviews' | 'content' | 'brands' | 'insights' | 'import';
 
 const tabs: { id: OzonTab; label: string; icon: React.ReactNode }[] = [
   { id: 'dashboard', label: 'DASHBOARD', icon: <IconChartBar size={14} /> },
+  { id: 'seo', label: 'SEO Аудит', icon: <IconSparkles size={14} /> },
   { id: 'cards', label: 'Карточки', icon: <IconPackage size={14} /> },
   { id: 'economics', label: 'Юнит-Экономика', icon: <IconTarget size={14} /> },
   { id: 'reviews', label: 'Отзывы', icon: <IconSparkles size={14} /> },
@@ -217,6 +219,7 @@ export default function OzonAnalyticsPage() {
                       {tabs.find(t => t.id === activeTab)?.label}
                     </div>
                     <span className={ozon.sectionSubtitle}>
+                      {activeTab === 'seo' && `Автоматизированный SEO-аудит (MVP)`}
                       {activeTab === 'cards' && `${data.products.length} карточек товаров`}
                       {activeTab === 'economics' && `Юнит-экономика FBO / FBS / rFBS`}
                       {activeTab === 'reviews' && `Семантический анализ отзывов покупателей`}
@@ -227,6 +230,9 @@ export default function OzonAnalyticsPage() {
                     </span>
                   </div>
                   <div className={ozon.sectionBody}>
+                    {activeTab === 'seo' && (
+                      <SeoAuditSection />
+                    )}
                     {activeTab === 'cards' && (
                       <ProductCardsTable products={data.products} onRowClick={setSelectedProduct} />
                     )}
