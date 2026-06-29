@@ -102,7 +102,7 @@ export function useExportedMatrix() {
           ...funnel,
           clicks: funnel.cardViews
         },
-        tags: classifyProduct(p.name as string).tags,
+        tags: classifyProduct(prod.name as string).tags,
       };
     }) as ExportedProduct[];
 
