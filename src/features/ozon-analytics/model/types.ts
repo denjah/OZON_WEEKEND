@@ -80,14 +80,25 @@ export type CardContent = {
 
 // --- UI Derived Types ---
 
-// Тэги для фильтрации и классификации товаров
-export type ProductTag =
-  | 'Настольный'
-  | 'Напольный'
-  | 'Складной'
-  | 'Подсветка'
-  | 'Электронный счётчик';
+export type ProductClass = 
+  | 'Теннисный стол' 
+  | 'Бильярд' 
+  | 'Настольный футбол' 
+  | 'Настольный хоккей' 
+  | 'Стол-трансформер' 
+  | 'Аксессуары'
+  | 'Неизвестно';
 
+export type ProductCategory = 
+  | 'Outdoor' | 'Indoor' 
+  | '2 фута' | '3 фута' | '4 фута' | '5 футов' | '6 футов' | '7 футов' | '8 футов'
+  | '2 в 1' | '3 в 1' | '4 в 1' | '6 в 1' | '10+ в 1'
+  | 'Другое';
+
+// Тэги для фильтрации и классификации товаров
+export type ProductTag = string;
+
+// Устаревший массив, но оставим для совместимости старого UI пока мы его не переписали
 export const ALL_PRODUCT_TAGS: ProductTag[] = [
   'Настольный',
   'Напольный',
@@ -116,6 +127,8 @@ export type AggregatedProduct = {
   imageUrls?: string[];
 
   // Тэги (классификация категории) — опционально в static data, inferTags заполняет в хуке
+  productClass?: ProductClass;
+  productCategory?: ProductCategory;
   tags?: ProductTag[];
 
   // Продажи
@@ -161,6 +174,7 @@ export type ExportedProduct = {
   buyoutPercent: number;
   funnel: FunnelMetrics;
   shareInColumn: number;
+  tags?: string[];
 };
 
 export type SizeMatrixCell = {

@@ -4,7 +4,12 @@ import React from 'react';
 import styles from '@/styles/ozon.module.css';
 import { IconSearch, IconFilter, IconRefresh } from '@/components/icons';
 import { useOzonFilters } from '../hooks/useOzonFilters';
-import { Brand, WorkScheme, ALL_PRODUCT_TAGS, ProductTag } from '../model/types';
+import { Brand, WorkScheme, ProductTag, ProductClass, ProductCategory } from '../model/types';
+
+const ALL_CLASSES: ProductClass[] = ['Теннисный стол', 'Бильярд', 'Настольный футбол', 'Настольный хоккей', 'Стол-трансформер', 'Аксессуары'];
+// Categories depend on classes, but for the filter we can list common ones or unique ones.
+const ALL_CATEGORIES: ProductCategory[] = ['Outdoor', 'Indoor', '2 фута', '3 фута', '4 фута', '5 футов', '6 футов', '7 футов', '8 футов', '2 в 1', '3 в 1', '4 в 1', '6 в 1', '10+ в 1'];
+
 
 interface OzonFiltersBarProps {
   brands: Brand[];
@@ -22,12 +27,16 @@ export function OzonFiltersBar({ brands, availableSizes }: OzonFiltersBarProps) 
     selectedBrandIds,
     selectedSizes,
     selectedSchemes,
+    selectedClasses,
+    selectedCategories,
     selectedTags,
     hasVideoOnly,
     searchQuery,
     toggleBrand,
     toggleSize,
     toggleScheme,
+    toggleClass,
+    toggleCategory,
     toggleTag,
     setHasVideoOnly,
     setSearchQuery,
@@ -38,6 +47,8 @@ export function OzonFiltersBar({ brands, availableSizes }: OzonFiltersBarProps) 
     selectedBrandIds.length > 0 ||
     selectedSizes.length > 0 ||
     selectedSchemes.length > 0 ||
+    selectedClasses.length > 0 ||
+    selectedCategories.length > 0 ||
     selectedTags.length > 0 ||
     hasVideoOnly ||
     searchQuery.trim().length > 0;
@@ -66,32 +77,34 @@ export function OzonFiltersBar({ brands, availableSizes }: OzonFiltersBarProps) 
 
       <div className={styles.filterDivider} />
 
-      {/* Tag chips — тэги категории */}
+      {/* Classes */}
       <div className={styles.filterGroup}>
-        {ALL_PRODUCT_TAGS.map((tag: ProductTag) => {
-          const isActive = selectedTags.includes(tag);
-          const isStructural = tag === 'Настольный' || tag === 'Напольный' || tag === 'Складной';
-          return (
-            <button
-              key={tag}
-              className={`${styles.filterChip} ${isActive ? styles.active : ''}`}
-              onClick={() => toggleTag(tag)}
-              id={`filter-tag-${tag.replace(/\s+/g, '-').toLowerCase()}`}
-              title={`Фильтр: ${tag}`}
-              style={isActive ? {} : {
-                borderColor: isStructural ? 'rgba(99, 179, 237, 0.4)' : 'rgba(246, 173, 85, 0.4)',
-                color: isStructural ? '#63B3ED' : '#F6AD55',
-              }}
-            >
-              {tag === 'Настольный' && '🔲 '}
-              {tag === 'Напольный' && '🏗️ '}
-              {tag === 'Складной' && '📦 '}
-              {tag === 'Подсветка' && '✨ '}
-              {tag === 'Электронный счётчик' && '📊 '}
-              {tag}
-            </button>
-          );
-        })}
+        {ALL_CLASSES.map((cls) => (
+          <button
+            key={cls}
+            className={`${styles.filterChip} ${selectedClasses.includes(cls) ? styles.active : ''}`}
+            onClick={() => toggleClass(cls)}
+            id={`filter-class-${cls.replace(/\s+/g, '-').toLowerCase()}`}
+          >
+            {cls}
+          </button>
+        ))}
+      </div>
+
+      <div className={styles.filterDivider} />
+
+      {/* Categories */}
+      <div className={styles.filterGroup}>
+        {ALL_CATEGORIES.map((cat) => (
+          <button
+            key={cat}
+            className={`${styles.filterChip} ${selectedCategories.includes(cat) ? styles.active : ''}`}
+            onClick={() => toggleCategory(cat)}
+            id={`filter-cat-${cat.replace(/\s+/g, '-').toLowerCase()}`}
+          >
+            {cat}
+          </button>
+        ))}
       </div>
 
       <div className={styles.filterDivider} />

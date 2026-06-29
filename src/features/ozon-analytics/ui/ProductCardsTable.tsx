@@ -2,31 +2,37 @@
 
 import React, { useState, useMemo } from 'react';
 import styles from '@/styles/ozon.module.css';
-import { AggregatedProduct, ProductTag, ALL_PRODUCT_TAGS } from '../model/types';
+import { AggregatedProduct, ProductTag } from '../model/types';
 import { formatCurrency, formatNumber, formatPercent } from '../lib/formatters';
+
+function getUniqueTags(products: AggregatedProduct[]): ProductTag[] {
+  const set = new Set<ProductTag>();
+  products.forEach(p => p.tags?.forEach(t => set.add(t)));
+  return Array.from(set).sort((a, b) => a.localeCompare(b, 'ru'));
+}
 
 interface Props {
   products: AggregatedProduct[];
   onRowClick: (product: AggregatedProduct) => void;
 }
 
-type SortField = 'revenue' | 'ordered' | 'price' | 'contentScore' | 'rating' | 'velocity' | 'tags';
+type SortField = 'revenue' | 'ordered' | 'price' | 'contentScore' | 'rating' | 'velocity' | 'tags' | 'productClass' | 'productCategory';
 
-const TAG_EMOJI: Record<ProductTag, string> = {
-  'Настольный': '🔲',
-  'Напольный': '🏗️',
-  'Складной': '📦',
-  'Подсветка': '✨',
-  'Электронный счётчик': '📊',
-};
+const TAG_COLORS = [
+  { bg: 'rgba(99,179,237,0.12)', color: '#63B3ED', border: 'rgba(99,179,237,0.3)' },
+  { bg: 'rgba(246,173,85,0.12)',  color: '#F6AD55', border: 'rgba(246,173,85,0.3)' },
+  { bg: 'rgba(110,231,183,0.12)', color: '#6EE7B7', border: 'rgba(110,231,183,0.3)' },
+  { bg: 'rgba(244,114,182,0.12)', color: '#F472B6', border: 'rgba(244,114,182,0.3)' },
+];
 
-const TAG_COLORS: Record<ProductTag, { bg: string; color: string; border: string }> = {
-  'Настольный':          { bg: 'rgba(99,179,237,0.12)', color: '#63B3ED', border: 'rgba(99,179,237,0.3)' },
-  'Напольный':           { bg: 'rgba(99,179,237,0.12)', color: '#63B3ED', border: 'rgba(99,179,237,0.3)' },
-  'Складной':            { bg: 'rgba(99,179,237,0.12)', color: '#63B3ED', border: 'rgba(99,179,237,0.3)' },
-  'Подсветка':           { bg: 'rgba(246,173,85,0.12)',  color: '#F6AD55', border: 'rgba(246,173,85,0.3)' },
-  'Электронный счётчик': { bg: 'rgba(246,173,85,0.12)',  color: '#F6AD55', border: 'rgba(246,173,85,0.3)' },
-};
+function getTagColor(tag: string) {
+  // Hash string to pick a color consistently
+  let hash = 0;
+  for (let i = 0; i < tag.length; i++) {
+    hash = tag.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return TAG_COLORS[Math.abs(hash) % TAG_COLORS.length];
+}
 
 export function ProductCardsTable({ products, onRowClick }: Props) {
   const [sortField, setSortField] = useState<SortField>('revenue');
@@ -63,6 +69,11 @@ export function ProductCardsTable({ products, onRowClick }: Props) {
         const bTag = (b.tags?.[0] ?? 'я');
         return sortDesc ? bTag.localeCompare(aTag, 'ru') : aTag.localeCompare(bTag, 'ru');
       }
+      if (sortField === 'productClass' || sortField === 'productCategory') {
+        const aVal = (a[sortField] as string) || '';
+        const bVal = (b[sortField] as string) || '';
+        return sortDesc ? bVal.localeCompare(aVal, 'ru') : aVal.localeCompare(bVal, 'ru');
+      }
       const aVal = (a[sortField] as number) || 0;
       const bVal = (b[sortField] as number) || 0;
       return sortDesc ? bVal - aVal : aVal - bVal;
@@ -83,9 +94,9 @@ export function ProductCardsTable({ products, onRowClick }: Props) {
         <span style={{ fontSize: '11px', color: 'var(--text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase', marginRight: '4px' }}>
           Тэги:
         </span>
-        {ALL_PRODUCT_TAGS.map(tag => {
+        {getUniqueTags(products).map(tag => {
           const active = tagFilter.includes(tag);
-          const c = TAG_COLORS[tag];
+          const c = getTagColor(tag);
           return (
             <button
               key={tag}
@@ -100,7 +111,7 @@ export function ProductCardsTable({ products, onRowClick }: Props) {
                 letterSpacing: '0.02em',
               }}
             >
-              {TAG_EMOJI[tag]} {tag}
+              {tag}
             </button>
           );
         })}
@@ -124,6 +135,18 @@ export function ProductCardsTable({ products, onRowClick }: Props) {
             <tr>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)' }}>Товар</th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)' }}>Бренд</th>
+              <th 
+                style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', cursor: 'pointer', userSelect: 'none' }}
+                onClick={() => handleSort('productClass')}
+              >
+                Класс {renderSortIcon('productClass')}
+              </th>
+              <th 
+                style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', cursor: 'pointer', userSelect: 'none' }}
+                onClick={() => handleSort('productCategory')}
+              >
+                Категория {renderSortIcon('productCategory')}
+              </th>
               <th style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', textAlign: 'center' }}>Размер</th>
               <th
                 style={{ padding: '12px 16px', borderBottom: '1px solid var(--border)', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' }}
@@ -173,12 +196,14 @@ export function ProductCardsTable({ products, onRowClick }: Props) {
                   </div>
                 </td>
                 <td style={{ padding: '12px 16px', fontSize: '13px' }}>{p.brandName}</td>
+                <td style={{ padding: '12px 16px', fontSize: '13px' }}>{p.productClass || '—'}</td>
+                <td style={{ padding: '12px 16px', fontSize: '13px' }}>{p.productCategory || '—'}</td>
                 <td style={{ padding: '12px 16px', fontSize: '13px', textAlign: 'center' }}>{p.sizeFt}ft</td>
                 <td style={{ padding: '12px 16px', minWidth: '180px' }}>
                   {p.tags && p.tags.length > 0 ? (
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3px' }}>
                       {p.tags.map(tag => {
-                        const c = TAG_COLORS[tag];
+                        const c = getTagColor(tag);
                         return (
                           <span
                             key={tag}
@@ -190,7 +215,7 @@ export function ProductCardsTable({ products, onRowClick }: Props) {
                               whiteSpace: 'nowrap',
                             }}
                           >
-                            {TAG_EMOJI[tag]} {tag}
+                            {tag}
                           </span>
                         );
                       })}

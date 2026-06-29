@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import productsData from '../../../data/ozon/products-export.json';
 import { ExportedProduct, FunnelMetrics } from './types';
 import { useGlobalFilters } from './useGlobalFilters';
+import { classifyProduct } from '../lib/product-classifier';
 
 export const FEET_COLUMNS = ['-3ft', '3ft', '4ft', '5ft', '6ft', '7ft'];
 
@@ -100,7 +101,8 @@ export function useExportedMatrix() {
         funnel: {
           ...funnel,
           clicks: funnel.cardViews
-        }
+        },
+        tags: classifyProduct(p.name as string).tags,
       };
     }) as ExportedProduct[];
 

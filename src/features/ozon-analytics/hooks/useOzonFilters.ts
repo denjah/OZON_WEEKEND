@@ -1,7 +1,7 @@
 'use client';
 
 import { create } from 'zustand';
-import { WorkScheme, ProductTag } from '../model/types';
+import { WorkScheme, ProductTag, ProductClass, ProductCategory } from '../model/types';
 
 export type SortField =
   | 'revenue'
@@ -21,6 +21,8 @@ export interface OzonFilters {
   selectedBrandIds: string[];
   selectedSizes: number[];
   selectedSchemes: WorkScheme[];
+  selectedClasses: ProductClass[];
+  selectedCategories: ProductCategory[];
   selectedTags: ProductTag[];
   hasVideoOnly: boolean;
   minRating: number | null;   // null = без ограничений
@@ -41,6 +43,10 @@ export interface OzonFilters {
   toggleSize: (size: number) => void;
   setSelectedSchemes: (schemes: WorkScheme[]) => void;
   toggleScheme: (scheme: WorkScheme) => void;
+  setSelectedClasses: (classes: ProductClass[]) => void;
+  toggleClass: (productClass: ProductClass) => void;
+  setSelectedCategories: (categories: ProductCategory[]) => void;
+  toggleCategory: (category: ProductCategory) => void;
   setSelectedTags: (tags: ProductTag[]) => void;
   toggleTag: (tag: ProductTag) => void;
   setHasVideoOnly: (value: boolean) => void;
@@ -56,6 +62,8 @@ const defaultState = {
   selectedBrandIds: [] as string[],
   selectedSizes: [] as number[],
   selectedSchemes: [] as WorkScheme[],
+  selectedClasses: [] as ProductClass[],
+  selectedCategories: [] as ProductCategory[],
   selectedTags: [] as ProductTag[],
   hasVideoOnly: false,
   minRating: null as number | null,
@@ -106,6 +114,28 @@ export const useOzonFilters = create<OzonFilters>((set, get) => ({
   setMinRating: (value) => set({ minRating: value }),
   setMinContentScore: (value) => set({ minContentScore: value }),
   setSearchQuery: (query) => set({ searchQuery: query }),
+
+  setSelectedClasses: (classes) => set({ selectedClasses: classes }),
+
+  toggleClass: (productClass) => {
+    const current = get().selectedClasses;
+    set({
+      selectedClasses: current.includes(productClass)
+        ? current.filter((c) => c !== productClass)
+        : [...current, productClass],
+    });
+  },
+
+  setSelectedCategories: (categories) => set({ selectedCategories: categories }),
+
+  toggleCategory: (category) => {
+    const current = get().selectedCategories;
+    set({
+      selectedCategories: current.includes(category)
+        ? current.filter((c) => c !== category)
+        : [...current, category],
+    });
+  },
 
   setSelectedTags: (tags) => set({ selectedTags: tags }),
 

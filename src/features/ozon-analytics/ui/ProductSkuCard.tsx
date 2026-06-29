@@ -33,6 +33,15 @@ export function ProductSkuCard({ product, index }: Props) {
             <span className={styles.skuId}>ID: {product.id}</span>
             {product.exactSize && <span className={styles.skuSize}>· {product.exactSize}</span>}
           </div>
+          {product.tags && product.tags.length > 0 && (
+            <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '6px' }}>
+              {product.tags.map(tag => (
+                <span key={tag} style={{ fontSize: '10px', background: 'var(--bg-primary)', padding: '2px 6px', borderRadius: '4px', color: 'var(--text-muted)' }}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 

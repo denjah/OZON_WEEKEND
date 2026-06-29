@@ -14,7 +14,7 @@ import {
   OzonAnalyticsData
 } from '../model/types';
 import { realOzonData } from '../model/real-data-dashboard';
-import { inferTags } from '../lib/tag-rules';
+import { classifyProduct } from '../lib/product-classifier';
 
 
 export function useOzonAnalytics(): OzonAnalyticsData {
@@ -56,6 +56,8 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     minRating,
     minContentScore,
     searchQuery,
+    selectedClasses,
+    selectedCategories,
     sortField,
     sortDirection,
     metricMode,
@@ -72,11 +74,10 @@ export function useOzonAnalytics(): OzonAnalyticsData {
       const base: AggregatedProduct = scraped?.mainImages?.length
         ? { ...p, mainImage: scraped.mainImages[0], imageUrls: scraped.mainImages as string[] }
         : { ...p };
-      // Если тэги уже есть (напр. продукт Weekend пришёл с API) — оставляем.
-      // Иначе вычисляем автоматически.
-      if (!base.tags?.length) {
-        base.tags = inferTags(base);
-      }
+      const classification = classifyProduct(base.title);
+      base.productClass = classification.productClass;
+      base.productCategory = classification.productCategory;
+      base.tags = classification.tags;
       return base;
     });
   }, [reviewsData, weekendProducts]);
@@ -94,6 +95,12 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     }
     if (selectedSchemes.length > 0) {
       result = result.filter((p) => selectedSchemes.includes(p.workScheme));
+    }
+    if (selectedClasses.length > 0) {
+      result = result.filter((p) => p.productClass && selectedClasses.includes(p.productClass));
+    }
+    if (selectedCategories.length > 0) {
+      result = result.filter((p) => p.productCategory && selectedCategories.includes(p.productCategory));
     }
     if (selectedTags.length > 0) {
       result = result.filter((p) =>
@@ -142,6 +149,8 @@ export function useOzonAnalytics(): OzonAnalyticsData {
     selectedBrandIds,
     selectedSizes,
     selectedSchemes,
+    selectedClasses,
+    selectedCategories,
     selectedTags,
     hasVideoOnly,
     minRating,
